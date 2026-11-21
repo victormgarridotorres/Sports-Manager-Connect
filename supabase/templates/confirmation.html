@@ -1,0 +1,15 @@
+{{ $l := .Data.preferred_locale }}
+<div style="font-family:Arial,Helvetica,sans-serif;max-width:520px;margin:auto;color:#0f172a">
+  <h2>Sports Manager Connect</h2>
+  {{ if eq $l "en" }}<p>Confirm your email to activate your account.</p>
+  {{ else if eq $l "fr" }}<p>Confirmez votre e-mail pour activer votre compte.</p>
+  {{ else if eq $l "de" }}<p>Bestätige deine E-Mail-Adresse, um dein Konto zu aktivieren.</p>
+  {{ else if eq $l "pt" }}<p>Confirma o teu e-mail para ativar a tua conta.</p>
+  {{ else }}<p>Confirma tu correo para activar tu cuenta.</p>{{ end }}
+  <p>
+    <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next=/{{ if $l }}{{ $l }}{{ else }}es{{ end }}/dashboard"
+       style="display:inline-block;padding:12px 20px;background:#e8590c;color:#fff;border-radius:8px;text-decoration:none">
+      {{ if eq $l "en" }}Confirm my email{{ else if eq $l "fr" }}Confirmer mon e-mail{{ else if eq $l "de" }}E-Mail bestätigen{{ else if eq $l "pt" }}Confirmar o meu e-mail{{ else }}Confirmar mi correo{{ end }}
+    </a>
+  </p>
+</div>

@@ -1,0 +1,15 @@
+{{ $l := .Data.preferred_locale }}
+<div style="font-family:Arial,Helvetica,sans-serif;max-width:520px;margin:auto;color:#0f172a">
+  <h2>Sports Manager Connect</h2>
+  {{ if eq $l "en" }}<p>We received a request to reset your password. If it wasn't you, ignore this email.</p>
+  {{ else if eq $l "fr" }}<p>Nous avons reçu une demande de réinitialisation de votre mot de passe. Si ce n'était pas vous, ignorez cet e-mail.</p>
+  {{ else if eq $l "de" }}<p>Wir haben eine Anfrage zum Zurücksetzen deines Passworts erhalten. Falls du das nicht warst, ignoriere diese E-Mail.</p>
+  {{ else if eq $l "pt" }}<p>Recebemos um pedido para repor a tua palavra-passe. Se não foste tu, ignora este e-mail.</p>
+  {{ else }}<p>Hemos recibido una solicitud para restablecer tu contraseña. Si no has sido tú, ignora este correo.</p>{{ end }}
+  <p>
+    <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next=/{{ if $l }}{{ $l }}{{ else }}es{{ end }}/reset-password"
+       style="display:inline-block;padding:12px 20px;background:#e8590c;color:#fff;border-radius:8px;text-decoration:none">
+      {{ if eq $l "en" }}Choose a new password{{ else if eq $l "fr" }}Choisir un nouveau mot de passe{{ else if eq $l "de" }}Neues Passwort wählen{{ else if eq $l "pt" }}Escolher nova palavra-passe{{ else }}Elegir nueva contraseña{{ end }}
+    </a>
+  </p>
+</div>
