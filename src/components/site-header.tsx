@@ -13,6 +13,9 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Messages })
       <div className="wrap flex h-[76px] items-center justify-between gap-3">
         <Brand locale={locale} title={dict.meta.title} />
         <div className="flex flex-none items-center gap-2 sm:gap-3">
+          <Link href={`/${locale}/move`} className="hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
+            Move
+          </Link>
           <Link href={`/${locale}/plans`} className="mr-1 hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
             {dict.nav.plans}
           </Link>
@@ -58,6 +61,7 @@ async function AuthNav({ locale, dict }: { locale: Locale; dict: Messages }) {
         profile: dict.profile.nav.profile,
         viewPublic: dict.profile.nav.viewPublic,
         account: dict.profile.nav.account,
+        favorites: dict.favorites.crumb,
       }}
     />
   );

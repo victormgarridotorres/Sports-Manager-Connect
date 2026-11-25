@@ -166,6 +166,20 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
   límites de 10 vídeos, 30 etapas y 60 jugadores; `delete_my_account()` borra todo en cascada.
   Para aplicarla: `npx supabase db push --remote`.
 
+## Fase 2: Move y Favoritos
+
+- **Move** (`/{idioma}/move`, requiere sesión): buscador de jugadores, profesionales y clubes con
+  filtros por nombre/club, país, tipo de perfil, posiciones de ataque y defensa, especialidad y liga.
+  Los filtros van en la URL (se pueden compartir y funcionan sin JavaScript). Orden: recientes,
+  más seguidos o nombre.
+- **Filtros de ojeo** (edad, altura mínima, mano, disponibilidad): solo para quien tiene el permiso
+  `talent.search` (clubes y profesionales verificados). La BD los ignora para el resto.
+- **Favoritos** (`/{idioma}/favorites`): la estrella ☆ en Move y el botón «Seguir» del perfil público.
+  Cada usuario solo ve los suyos; los perfiles muestran el número de seguidores, nunca quiénes son.
+- BD (`supabase/migrations/20261127000000_phase2_move_favorites.sql`): tabla `favorites` con RLS,
+  `follower_count()` y `search_move()` (se ejecuta con los permisos de quien busca, así que respeta
+  la visibilidad de cada perfil). Para aplicarla: `npx supabase db push --remote`.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

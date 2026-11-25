@@ -97,4 +97,4 @@ export const rosterSchema = z.object({
   shirt_number: optInt(0, () => 99),
 });
 
-export const idSchema = z.object({ id: z.uuid() });
+export const idSchema = z.object({ id: z.guid() });

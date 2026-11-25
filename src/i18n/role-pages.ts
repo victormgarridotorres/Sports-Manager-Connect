@@ -52,7 +52,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Sigue a tus favoritos",
             "text": "Guarda jugadores, clubes y ligas para no perderte nada de lo que te interesa.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "¿List@ para unirte a la comunidad?",
@@ -82,7 +82,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Aparece en Move",
             "text": "Recibe interés real de clubes y profesionales que buscan tu posición.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "¿List@ para que te descubran?",
@@ -112,7 +112,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Visible en Move",
             "text": "Aparece en las búsquedas de clubes que filtran por especialidad y país.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "¿List@ para mostrar tu trayectoria?",
@@ -132,7 +132,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Filtra por posición y país",
             "text": "Busca en Move por posición, país, categoría y disponibilidad, con filtros en cascada.",
-            "available": false
+            "available": true
           },
           {
             "title": "Recibe candidaturas",
@@ -180,7 +180,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Follow your favourites",
             "text": "Save players, clubs and leagues so you never miss what matters to you.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Ready to join the community?",
@@ -210,7 +210,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Appear on Move",
             "text": "Get real interest from clubs and professionals looking for your position.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Ready to be discovered?",
@@ -240,7 +240,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Visible on Move",
             "text": "Appear in searches by clubs filtering by specialty and country.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Ready to showcase your career?",
@@ -260,7 +260,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Filter by position and country",
             "text": "Search Move by position, country, category and availability, with cascading filters.",
-            "available": false
+            "available": true
           },
           {
             "title": "Receive applications",
@@ -308,7 +308,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Suivez vos favoris",
             "text": "Enregistrez joueurs, clubs et championnats pour ne rien manquer de ce qui vous intéresse.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Prêt(e) à rejoindre la communauté ?",
@@ -338,7 +338,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Apparaissez sur Move",
             "text": "Recevez de l'intérêt réel de la part de clubs et professionnel(le)s qui recherchent votre poste.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Prêt(e) à être découvert(e) ?",
@@ -368,7 +368,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Visible sur Move",
             "text": "Apparaissez dans les recherches de clubs filtrant par spécialité et pays.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Prêt(e) à montrer votre parcours ?",
@@ -388,7 +388,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Filtrez par poste et pays",
             "text": "Recherchez sur Move par poste, pays, catégorie et disponibilité, avec des filtres en cascade.",
-            "available": false
+            "available": true
           },
           {
             "title": "Recevez des candidatures",
@@ -436,7 +436,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Folge deinen Favoriten",
             "text": "Speichere Spieler/innen, Vereine und Ligen, damit du nichts verpasst.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Bereit, der Community beizutreten?",
@@ -466,7 +466,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Erscheine auf Move",
             "text": "Erhalte echtes Interesse von Vereinen und Fachleuten, die deine Position suchen.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Bereit, entdeckt zu werden?",
@@ -496,7 +496,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Sichtbar auf Move",
             "text": "Erscheine in Vereinssuchen, die nach Spezialisierung und Land filtern.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Bereit, deinen Werdegang zu zeigen?",
@@ -516,7 +516,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Nach Position und Land filtern",
             "text": "Suche auf Move nach Position, Land, Kategorie und Verfügbarkeit mit kaskadierenden Filtern.",
-            "available": false
+            "available": true
           },
           {
             "title": "Bewerbungen erhalten",
@@ -564,7 +564,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Siga os seus favoritos",
             "text": "Guarde jogadores, clubes e ligas para não perder nada do que lhe interessa.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Pronto/a para se juntar à comunidade?",
@@ -594,7 +594,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Apareça no Move",
             "text": "Receba interesse real de clubes e profissionais que procuram a sua posição.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Pronto/a para ser descoberto/a?",
@@ -624,7 +624,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Visível no Move",
             "text": "Apareça nas pesquisas de clubes que filtram por especialidade e país.",
-            "available": false
+            "available": true
           }
         ],
         "ctaTitle": "Pronto/a para mostrar a sua trajetória?",
@@ -644,7 +644,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Filtre por posição e país",
             "text": "Pesquise no Move por posição, país, categoria e disponibilidade, com filtros em cascata.",
-            "available": false
+            "available": true
           },
           {
             "title": "Receba candidaturas",

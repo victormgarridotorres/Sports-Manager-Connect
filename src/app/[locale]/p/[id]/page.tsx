@@ -5,6 +5,8 @@ import { PageBody, SubHero } from "@/components/page-shell";
 import { Avatar } from "@/components/profile/avatar";
 import { PositionPitchView } from "@/components/profile/position-pitch";
 import { VideoCard } from "@/components/profile/video-card";
+import { FavoriteButton } from "@/components/move/favorite-button";
+import { followState } from "@/lib/move/queries";
 import { hasLocale, type Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries/es";
 import { format } from "@/i18n/format";
@@ -39,10 +41,27 @@ async function PublicProfile({ params }: { params: PageProps<"/[locale]/p/[id]">
       </>
     );
   }
-  return <ProfileView full={full} locale={locale} dict={dict} isOwner={viewer?.id === full.profile.id} />;
+  const isOwner = viewer?.id === full.profile.id;
+  const follow = viewer ? await followState(full.profile.id) : null;
+  const canFollow = !!viewer && !isOwner && viewer.permissions.includes("profiles.follow");
+  return <ProfileView full={full} locale={locale} dict={dict} isOwner={isOwner} follow={follow} canFollow={canFollow} />;
 }
 
-function ProfileView({ full, locale, dict, isOwner }: { full: FullProfile; locale: Locale; dict: Messages; isOwner: boolean }) {
+function ProfileView({
+  full,
+  locale,
+  dict,
+  isOwner,
+  follow,
+  canFollow,
+}: {
+  full: FullProfile;
+  locale: Locale;
+  dict: Messages;
+  isOwner: boolean;
+  follow: { followers: number; following: boolean } | null;
+  canFollow: boolean;
+}) {
   const { profile, player, professional, club } = full;
   const pp = dict.publicProfile;
   const o = dict.options;
@@ -77,6 +96,8 @@ function ProfileView({ full, locale, dict, isOwner }: { full: FullProfile; local
     if (club?.league) stats.push({ value: club.league, label: pp.league });
     if (full.roster.length) stats.push({ value: String(full.roster.length), label: pp.players });
   }
+
+  if (follow && follow.followers > 0) stats.push({ value: String(follow.followers), label: pp.followers });
 
   const details: [string, ReactNode][] = [];
   const add = (label: string, value: ReactNode | null | undefined | false) => value && details.push([label, value]);
@@ -127,6 +148,15 @@ function ProfileView({ full, locale, dict, isOwner }: { full: FullProfile; local
               <Link href={`/${locale}/dashboard/profile`} className="btn btn-gold">
                 {pp.editMine}
               </Link>
+            </div>
+          ) : canFollow ? (
+            <div className="flex flex-wrap gap-2.5 sm:ml-auto">
+              <FavoriteButton
+                profileId={profile.id}
+                initial={follow?.following ?? false}
+                variant="button"
+                labels={{ follow: dict.move.follow, following: dict.move.following, error: dict.auth.errors.generic }}
+              />
             </div>
           ) : null}
         </div>
