@@ -37,3 +37,16 @@ export function UrlError(props: { errors: Messages["auth"]["errors"]; only?: Err
     </Suspense>
   );
 }
+
+function UrlNoticeInner({ text }: { text: string }) {
+  return useSearchParams().get("notice") === "emailConfirmed" ? <Alert tone="success">{text}</Alert> : null;
+}
+
+/** Aviso de "email confirmado" tras abrir el enlace en otro navegador. */
+export function EmailConfirmedNotice({ text }: { text: string }) {
+  return (
+    <Suspense>
+      <UrlNoticeInner text={text} />
+    </Suspense>
+  );
+}

@@ -5,7 +5,7 @@ import type { Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries/es";
 import { signIn } from "@/lib/auth/actions";
 import { Alert, Field, SubmitButton, useAuthForm } from "./form-ui";
-import { NextInput, UrlError } from "./url-params";
+import { EmailConfirmedNotice, NextInput, UrlError } from "./url-params";
 
 export function LoginForm({ locale, t }: { locale: Locale; t: Messages["auth"] }) {
   const { state, pending, onSubmit, fields } = useAuthForm(signIn);
@@ -17,7 +17,10 @@ export function LoginForm({ locale, t }: { locale: Locale; t: Messages["auth"] }
       {state.status === "error" ? (
         <Alert tone="error">{t.errors[state.error]}</Alert>
       ) : state.status === "idle" ? (
-        <UrlError errors={t.errors} />
+        <>
+          <UrlError errors={t.errors} />
+          <EmailConfirmedNotice text={t.login.emailConfirmed} />
+        </>
       ) : null}
 
       <Field label={t.email} htmlFor="email" error={fields.email && t.fieldErrors[fields.email]}>

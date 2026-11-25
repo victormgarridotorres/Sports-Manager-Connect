@@ -30,6 +30,15 @@ export async function GET(request: NextRequest) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) return NextResponse.redirect(new URL(next, request.url));
     console.error("[auth:confirm:code]", error.code, error.message);
+    // Enlace abierto en otro navegador: falta la cookie del flujo PKCE. Supabase ya
+    // verificó el email antes de redirigir aquí, así que el alta está confirmada y
+    // basta con iniciar sesión. Para recuperar contraseña sí hace falta el mismo navegador.
+    if (error.code === "pkce_code_verifier_not_found") {
+      const target = isRecovery
+        ? `/${locale}/forgot-password?error=linkOtherBrowser`
+        : `/${locale}/login?notice=emailConfirmed`;
+      return NextResponse.redirect(new URL(target, request.url));
+    }
   } else if (tokenHash && type && ALLOWED_TYPES.includes(type)) {
     const { error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
     if (!error) return NextResponse.redirect(new URL(next, request.url));

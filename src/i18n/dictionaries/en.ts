@@ -69,6 +69,7 @@ const en: Messages = {
       forgot: "Forgot your password?",
       noAccount: "Don't have an account yet?",
       signupLink: "Join for free",
+      emailConfirmed: "Your email is confirmed. Log in to continue.",
     },
     signup: {
       crumb: "Sign up",
@@ -128,6 +129,7 @@ const en: Messages = {
       consentRequired: "You must accept the terms and the privacy policy.",
       adultRequired: "Sports Manager Connect is for adults only (18 or older).",
       linkInvalid: "The link is invalid or has expired. Request a new one.",
+      linkOtherBrowser: "Open the link in the same browser where you requested it, or request a new one here.",
       samePassword: "The new password must be different from the old one.",
       generic: "Something went wrong. Please try again.",
     },

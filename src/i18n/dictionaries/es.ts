@@ -70,6 +70,7 @@ const es = {
       forgot: "¿Has olvidado tu contraseña?",
       noAccount: "¿Aún no tienes cuenta?",
       signupLink: "Únete gratis",
+      emailConfirmed: "Tu email está confirmado. Inicia sesión para continuar.",
     },
     signup: {
       crumb: "Registro",
@@ -129,6 +130,7 @@ const es = {
       consentRequired: "Debes aceptar los términos y la política de privacidad.",
       adultRequired: "Sports Manager Connect es solo para mayores de edad (18 años o más).",
       linkInvalid: "El enlace no es válido o ha caducado. Solicita uno nuevo.",
+      linkOtherBrowser: "Abre el enlace en el mismo navegador en el que lo pediste, o solicita uno nuevo desde aquí.",
       samePassword: "La nueva contraseña debe ser distinta de la anterior.",
       generic: "Algo ha ido mal. Inténtalo de nuevo.",
     },

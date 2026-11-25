@@ -69,6 +69,7 @@ const pt: Messages = {
       forgot: "Esqueceste-te da palavra-passe?",
       noAccount: "Ainda não tens conta?",
       signupLink: "Adere grátis",
+      emailConfirmed: "O teu e-mail está confirmado. Inicia sessão para continuar.",
     },
     signup: {
       crumb: "Registo",
@@ -128,6 +129,7 @@ const pt: Messages = {
       consentRequired: "Tens de aceitar os termos e a política de privacidade.",
       adultRequired: "O Sports Manager Connect é apenas para maiores de idade (18 anos ou mais).",
       linkInvalid: "A ligação não é válida ou expirou. Pede uma nova.",
+      linkOtherBrowser: "Abre a ligação no mesmo navegador onde a pediste, ou pede uma nova aqui.",
       samePassword: "A nova palavra-passe tem de ser diferente da anterior.",
       generic: "Algo correu mal. Tenta novamente.",
     },

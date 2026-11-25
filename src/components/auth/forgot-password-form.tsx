@@ -15,7 +15,7 @@ export function ForgotPasswordForm({ locale, t }: { locale: Locale; t: Messages[
       <input type="hidden" name="locale" value={locale} />
       {state.status === "success" ? <Alert tone="success">{t.forgot.sent}</Alert> : null}
       {state.status === "error" ? <Alert tone="error">{t.errors[state.error]}</Alert> : null}
-      {state.status === "idle" ? <UrlError errors={t.errors} only={["linkInvalid"]} /> : null}
+      {state.status === "idle" ? <UrlError errors={t.errors} only={["linkInvalid", "linkOtherBrowser"]} /> : null}
 
       <Field label={t.email} htmlFor="email" error={fields.email && t.fieldErrors[fields.email]}>
         <input id="email" name="email" type="email" autoComplete="email" required aria-invalid={!!fields.email} />
