@@ -44,9 +44,13 @@ Requisitos: Git y Node.js 22 (LTS). No hace falta Docker.
    - Contraseña: mínimo 10 caracteres, mayúsculas + minúsculas + dígitos
    - Site URL y Redirect URLs (`<dominio>/auth/confirm`). En `config.toml` están las de desarrollo
      (`http://localhost:3000`); cámbialas por tu dominio al publicar la web.
-   - Plantillas de email *Confirm signup* y *Reset password* (`supabase/templates/*.html`, enlazan a
-     `/auth/confirm` con `token_hash` y se adaptan al idioma del usuario)
-   - Antes de abrir al público, configura un SMTP propio (el de Supabase sólo sirve para pruebas)
+   - Correos: de momento se usan las plantillas por defecto de Supabase (en el plan gratuito no se
+     pueden personalizar sin SMTP propio). `/auth/confirm` acepta sus enlaces (`?code=`, flujo PKCE:
+     hay que abrir el enlace en el mismo navegador donde se hizo el registro).
+   - Antes de abrir al público, configura un SMTP propio (el de Supabase solo sirve para pruebas y
+     envía pocos correos por hora). Después, descomenta las plantillas en `config.toml`
+     (`supabase/templates/*.html`: multidioma y válidas en cualquier dispositivo) y vuelve a hacer
+     `npx supabase config push`.
 5. Variables de entorno: copia el ejemplo y rellena la URL del proyecto y la *publishable key*
    (panel de Supabase → Project Settings → API Keys):
    ```bash

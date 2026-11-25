@@ -46,6 +46,9 @@ function authError(error: AuthError, context: string): FormState {
 
 const formObject = (formData: FormData) => Object.fromEntries(formData.entries());
 
+/** Enlace de los correos: /auth/confirm?next=<ruta interna en el idioma del usuario>. */
+const confirmUrl = (next: string) => `${getSiteUrl()}/auth/confirm?next=${encodeURIComponent(next)}`;
+
 export async function signUp(_prev: FormState, formData: FormData): Promise<FormState> {
   const parsed = signupSchema.safeParse(formObject(formData));
   if (!parsed.success) return invalid(parsed.error);
@@ -55,7 +58,7 @@ export async function signUp(_prev: FormState, formData: FormData): Promise<Form
     email: parsed.data.email,
     password: parsed.data.password,
     options: {
-      emailRedirectTo: `${getSiteUrl()}/auth/confirm`,
+      emailRedirectTo: confirmUrl(`/${parsed.data.locale}/dashboard`),
       data: toSignupMetadata(parsed.data),
     },
   });
@@ -85,7 +88,7 @@ export async function requestPasswordReset(_prev: FormState, formData: FormData)
 
   const supabase = await createClient();
   const { error } = await supabase.auth.resetPasswordForEmail(parsed.data.email, {
-    redirectTo: `${getSiteUrl()}/auth/confirm`,
+    redirectTo: confirmUrl(`/${parsed.data.locale}/reset-password`),
   });
   if (error?.code === "over_email_send_rate_limit" || error?.code === "over_request_rate_limit") {
     return authError(error, "forgot");
