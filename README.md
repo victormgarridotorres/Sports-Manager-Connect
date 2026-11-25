@@ -8,31 +8,51 @@ Plataforma de balonmano con 4 tipos de perfil: **aficionado**, **jugador**, **pr
 
 ## Puesta en marcha
 
-1. **Crea el proyecto Supabase en una región de la UE** (la región no se puede cambiar después):
+Requisitos: Git y Node.js 22 (LTS). No hace falta Docker.
+
+1. Descarga el código e instala las dependencias:
+   ```bash
+   git clone https://github.com/victormgarridotorres/Sports-Manager-Connect.git
+   ```
+   ```bash
+   cd Sports-Manager-Connect
+   ```
+   ```bash
+   npm install
+   ```
+2. **Crea el proyecto Supabase en una región de la UE** (la región no se puede cambiar después):
    Dashboard → New project → Region: *Central EU (Frankfurt)* `eu-central-1`, o *West EU (Paris/Ireland)*.
-2. Aplica la migración:
+   Apunta la contraseña de la base de datos.
+3. Conecta con el proyecto y crea las tablas (desde la carpeta del proyecto). El *project ref* es el
+   código que aparece en la URL del panel (`/dashboard/project/<project-ref>`):
+   ```bash
+   npx supabase login
+   ```
    ```bash
    npx supabase link --project-ref <project-ref>
    ```
    ```bash
-   npx supabase db push
+   npx supabase db push --remote
    ```
-3. En **Authentication → Settings** del proyecto replica lo que hay en `supabase/config.toml`
-   (o súbelo con `npx supabase config push`):
+   Sin `--remote`, la CLI intenta usar una base de datos local (Docker) y falla.
+4. Configura la autenticación subiendo `supabase/config.toml` (muestra los cambios y pide confirmación):
+   ```bash
+   npx supabase config push
+   ```
+   Lo que aplica (también se puede hacer a mano en **Authentication**):
    - Confirmación por email activada
    - Contraseña: mínimo 10 caracteres, mayúsculas + minúsculas + dígitos
-   - Site URL = tu dominio; Redirect URLs: `https://<dominio>/auth/confirm`
-   - Plantillas de email *Confirm signup* y *Reset password*: copia `supabase/templates/*.html`
-     (enlazan a `/auth/confirm` con `token_hash` y se adaptan al idioma del usuario)
-   - Configura un SMTP propio (el de Supabase sólo sirve para pruebas)
-4. Variables de entorno:
+   - Site URL y Redirect URLs (`<dominio>/auth/confirm`). En `config.toml` están las de desarrollo
+     (`http://localhost:3000`); cámbialas por tu dominio al publicar la web.
+   - Plantillas de email *Confirm signup* y *Reset password* (`supabase/templates/*.html`, enlazan a
+     `/auth/confirm` con `token_hash` y se adaptan al idioma del usuario)
+   - Antes de abrir al público, configura un SMTP propio (el de Supabase sólo sirve para pruebas)
+5. Variables de entorno: copia el ejemplo y rellena la URL del proyecto y la *publishable key*
+   (panel de Supabase → Project Settings → API Keys):
    ```bash
    cp .env.example .env.local
    ```
-5. Arranca:
-   ```bash
-   npm install
-   ```
+6. Arranca y abre http://localhost:3000:
    ```bash
    npm run dev
    ```
