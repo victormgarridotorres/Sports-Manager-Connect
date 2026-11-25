@@ -151,6 +151,21 @@ sub-páginas oscuras con tarjetas blancas).
 No se han trasladado (a propósito) los datos de demostración del prototipo — cifras como
 "41.000 perfiles", noticias, movimientos, precios tachados — porque en producción serían datos falsos.
 
+## Fase 1: perfiles
+
+- **Editar perfil** (`/{idioma}/dashboard/profile`): datos básicos y foto; jugador/a (año de nacimiento,
+  altura, peso, mano, disponibilidad, club y posiciones de ataque/defensa sobre la pista); profesional
+  (especialidad, experiencia, formación, logros); club (datos, palmarés y plantilla); trayectoria y
+  highlights (enlaces de YouTube/Vimeo: se guarda solo el ID; no se carga nada de terceros hasta pulsar ▶).
+- **Perfil público** (`/{idioma}/p/{id}`), **Mi panel** con "Completa tu perfil" real,
+  **Ajustes de cuenta** (idioma, visibilidad, novedades, email, contraseña, **eliminar cuenta**).
+- **Páginas de cada perfil** (`/{idioma}/roles/{fan|player|professional|club}`) y **Planes** (`/{idioma}/plans`).
+- BD (`supabase/migrations/20261126000000_phase1_profiles.sql`): consentimientos en tabla privada
+  `account_private`; visibilidad del perfil (público / solo verificados) aplicada con RLS
+  (`can_view_profile`); fotos en el bucket `avatars` (cada usuario solo escribe en su carpeta);
+  límites de 10 vídeos, 30 etapas y 60 jugadores; `delete_my_account()` borra todo en cascada.
+  Para aplicarla: `npx supabase db push --remote`.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

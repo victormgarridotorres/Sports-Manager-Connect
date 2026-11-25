@@ -19,7 +19,7 @@ export const playerPositions = [
 export type PlayerPosition = (typeof playerPositions)[number];
 
 export const professionalTypes = [
-  "coach", "physio", "psychologist", "referee", "agent", "scout", "analyst", "other",
+  "coach", "fitness_coach", "physio", "nutritionist", "psychologist", "referee", "agent", "scout", "analyst", "other",
 ] as const;
 export type ProfessionalType = (typeof professionalTypes)[number];
 

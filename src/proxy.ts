@@ -37,8 +37,8 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Tipo de perfil inexistente en /signup/<rol> -> volver a elegir perfil.
-  const signupRole = pathname.match(new RegExp(`^/${locale}/signup/([^/]+)`))?.[1];
+  // Tipo de perfil inexistente en /signup/<rol> o /roles/<rol> -> volver a elegir perfil.
+  const signupRole = pathname.match(new RegExp(`^/${locale}/(?:signup|roles)/([^/]+)`))?.[1];
   if (signupRole && !(roles as readonly string[]).includes(signupRole)) {
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}/signup`;

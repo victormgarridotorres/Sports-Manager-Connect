@@ -1,23 +1,22 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { localeFlags, localeNames, locales, type Locale } from "@/i18n/config";
 import { useDismissable } from "./use-dismiss";
 
-/** Ruta actual con otro idioma (conserva la query). */
-export function useLocalizedPath() {
-  const pathname = usePathname();
-  return (target: Locale) => {
-    const rest = pathname.split("/").slice(2).join("/");
-    const query = typeof window !== "undefined" ? window.location.search : "";
-    return `/${target}${rest ? `/${rest}` : ""}${query}`;
-  };
+/**
+ * Ruta actual con otro idioma (conserva la query). Se calcula al pulsar, no al
+ * pintar: así el menú no depende de la URL y se puede prerenderizar en cualquier página.
+ */
+function localizedPath(target: Locale) {
+  const { pathname, search } = window.location;
+  const rest = pathname.split("/").slice(2).join("/");
+  return `/${target}${rest ? `/${rest}` : ""}${search}`;
 }
 
 export function LanguageMenu({ locale, label }: { locale: Locale; label: string }) {
   const { open, setOpen, ref } = useDismissable<HTMLDivElement>();
   const router = useRouter();
-  const localized = useLocalizedPath();
 
   return (
     <div ref={ref} className="relative">
@@ -42,7 +41,7 @@ export function LanguageMenu({ locale, label }: { locale: Locale; label: string 
               className={`menu-item ${l === locale ? "active" : ""}`}
               onClick={() => {
                 setOpen(false);
-                if (l !== locale) router.push(localized(l));
+                if (l !== locale) router.push(localizedPath(l));
               }}
             >
               <span aria-hidden className="text-base">{localeFlags[l]}</span>
@@ -57,7 +56,6 @@ export function LanguageMenu({ locale, label }: { locale: Locale; label: string 
 
 /** Píldoras de idioma del pie de página. */
 export function LanguagePills({ locale }: { locale: Locale }) {
-  const localized = useLocalizedPath();
   const router = useRouter();
   return (
     <div className="flex flex-wrap gap-2.5">
@@ -68,7 +66,7 @@ export function LanguagePills({ locale }: { locale: Locale }) {
           lang={l}
           title={localeNames[l]}
           aria-current={l === locale ? "true" : undefined}
-          onClick={() => l !== locale && router.push(localized(l))}
+          onClick={() => l !== locale && router.push(localizedPath(l))}
           className={`rounded-full border px-[11px] py-[5px] ${
             l === locale ? "border-white bg-white font-bold text-night" : "border-white/15 hover:border-white/40"
           }`}

@@ -10,10 +10,11 @@ type Props = {
   locale: Locale;
   name: string;
   subtitle: string;
-  labels: { menu: string; dashboard: string; logout: string };
+  userId: string;
+  labels: { menu: string; dashboard: string; logout: string; profile: string; viewPublic: string; account: string };
 };
 
-export function AccountMenu({ locale, name, subtitle, labels }: Props) {
+export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
   const { open, setOpen, ref } = useDismissable<HTMLDivElement>();
 
   return (
@@ -38,9 +39,16 @@ export function AccountMenu({ locale, name, subtitle, labels }: Props) {
               <span className="text-xs text-muted">{subtitle}</span>
             </div>
           </div>
-          <Link role="menuitem" href={`/${locale}/dashboard`} className="menu-item" onClick={() => setOpen(false)}>
-            <span aria-hidden className="w-[18px] text-center">📊</span> {labels.dashboard}
-          </Link>
+          {[
+            { href: `/${locale}/dashboard`, icon: "📊", label: labels.dashboard },
+            { href: `/${locale}/dashboard/profile`, icon: "✏️", label: labels.profile },
+            { href: `/${locale}/p/${userId}`, icon: "👤", label: labels.viewPublic },
+            { href: `/${locale}/dashboard/account`, icon: "⚙️", label: labels.account },
+          ].map((item) => (
+            <Link key={item.href} role="menuitem" href={item.href} className="menu-item" onClick={() => setOpen(false)}>
+              <span aria-hidden className="w-[18px] text-center">{item.icon}</span> {item.label}
+            </Link>
+          ))}
           <div className="mx-1 my-1.5 h-px bg-line" />
           <form action={signOut}>
             <input type="hidden" name="locale" value={locale} />

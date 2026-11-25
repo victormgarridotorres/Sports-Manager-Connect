@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { QueryNotice } from "@/components/query-notice";
 import { RoleIcon } from "@/components/role-icon";
 import { Rich } from "@/components/rich-text";
 import { hasLocale } from "@/i18n/config";
@@ -25,6 +26,9 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,rgba(15,23,40,.95)_0%,rgba(15,23,40,.86)_32%,rgba(15,23,40,.55)_50%,rgba(15,23,40,.22)_68%,transparent_96%),radial-gradient(600px_300px_at_85%_6%,rgba(226,162,51,.14),transparent_70%),repeating-linear-gradient(120deg,rgba(255,255,255,.02)_0_2px,transparent_2px_60px)]"
         />
         <div className="wrap relative">
+          <div className="max-w-xl">
+            <QueryNotice param="accountDeleted" text={h.accountDeleted} />
+          </div>
           <h1 className="mt-[18px] mb-[22px] max-w-[920px] text-[clamp(36px,5.4vw,64px)] leading-[1.06] font-extrabold tracking-[-.02em]">
             <Rich text={h.title} />
           </h1>
@@ -52,7 +56,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           </div>
           <div className="grid gap-[22px] sm:grid-cols-2 lg:grid-cols-4">
             {roles.map((role) => (
-              <Link key={role} href={`/${locale}/signup/${role}`} className="cat-card">
+              <Link key={role} href={`/${locale}/roles/${role}`} className="cat-card">
                 <div className="cat-icon">
                   <RoleIcon role={role} />
                 </div>
