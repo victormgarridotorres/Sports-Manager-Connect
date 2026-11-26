@@ -11,7 +11,7 @@ type Props = {
   name: string;
   subtitle: string;
   userId: string;
-  labels: { menu: string; dashboard: string; logout: string; profile: string; viewPublic: string; account: string; favorites: string; listings: string };
+  labels: { menu: string; dashboard: string; logout: string; profile: string; viewPublic: string; account: string; favorites: string; listings: string; messages: string };
 };
 
 export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
@@ -25,10 +25,10 @@ export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={labels.menu}
-        className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1.5 pr-3.5 pl-1.5 hover:border-white/30 hover:bg-white/10"
+        className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1.5 pr-1.5 pl-1.5 sm:pr-3.5 hover:border-white/30 hover:bg-white/10"
       >
         <span aria-hidden className="avatar-tile size-[26px] rounded-full text-[10px]">{initials(name)}</span>
-        <span aria-hidden className="text-sm text-white">☰</span>
+        <span aria-hidden className="hidden text-sm text-white sm:inline">☰</span>
       </button>
       {open ? (
         <div role="menu" className="menu-panel w-[260px]">
@@ -43,6 +43,7 @@ export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
             { href: `/${locale}/dashboard`, icon: "📊", label: labels.dashboard },
             { href: `/${locale}/dashboard/profile`, icon: "✏️", label: labels.profile },
             { href: `/${locale}/p/${userId}`, icon: "👤", label: labels.viewPublic },
+            { href: `/${locale}/messages`, icon: "✉️", label: labels.messages },
             { href: `/${locale}/move`, icon: "🔁", label: "Move" },
             { href: `/${locale}/favorites`, icon: "★", label: labels.favorites },
             { href: `/${locale}/listings/mine`, icon: "📋", label: labels.listings },

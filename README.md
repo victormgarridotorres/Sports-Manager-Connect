@@ -199,6 +199,25 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
 - El cliente de Supabase en servidor llama a `connection()`: Supabase lee el reloj y, con Cache
   Components, eso solo puede ocurrir en una petición real.
 
+## Fase 4: Mensajes
+
+- **Bandeja** (`/{idioma}/messages`) con buscador y conversación (`/messages/{id}`) en tiempo real
+  (Supabase Realtime; si se corta, la página se refresca cada 30 s). En el móvil se ve una cosa cada vez.
+- **Quién escribe**: jugadores, profesionales y clubes (permiso `messages.send`), solo a perfiles que
+  pueden ver y que aceptan mensajes. Los aficionados ven el aviso correspondiente.
+- **Por dónde se empieza**: «Enviar mensaje» en un perfil, «Escribir» a un candidato o al club desde
+  una candidatura, y «Contactar» en anuncios de jugadores, profesionales y agentes. Si ya existe la
+  conversación, se reutiliza.
+- **Adjuntos**: PDF o imagen (JPG, PNG, WebP) de hasta 5 MB, en el bucket privado
+  `message-attachments`; solo los participantes pueden abrirlos (enlace temporal de 1 h).
+- **Bloquear** (con confirmación) y **dejar de aceptar mensajes nuevos** en Ajustes de cuenta, donde
+  también está la lista de bloqueados.
+- **Antispam** en la BD: máximo 20 conversaciones nuevas al día y 60 mensajes por hora.
+- Aviso de mensajes sin leer en la cabecera (✉️).
+- BD (`supabase/migrations/20261129000000_phase4_messages.sql`). Para aplicarla:
+  `npx supabase db push --remote`.
+- Pendiente: avisos por email de mensajes nuevos (cuando haya SMTP propio).
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

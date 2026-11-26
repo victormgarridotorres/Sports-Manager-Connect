@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries/es";
 import { getAccount } from "@/lib/auth/dal";
+import { unreadCount } from "@/lib/messages/queries";
 import { AccountMenu } from "./account-menu";
 import { Brand } from "./brand";
 import { LanguageMenu } from "./language-menu";
@@ -10,7 +11,7 @@ import { LanguageMenu } from "./language-menu";
 export function SiteHeader({ locale, dict }: { locale: Locale; dict: Messages }) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[rgba(18,19,26,.92)] backdrop-blur-md">
-      <div className="wrap flex h-[76px] items-center justify-between gap-3">
+      <div className="wrap flex h-[76px] items-center justify-between gap-2 sm:gap-3">
         <Brand locale={locale} title={dict.meta.title} />
         <div className="flex flex-none items-center gap-2 sm:gap-3">
           <Link href={`/${locale}/move`} className="hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
@@ -49,9 +50,21 @@ async function AuthNav({ locale, dict }: { locale: Locale; dict: Messages }) {
     );
   }
 
+  const unread = account.permissions.includes("messages.send") ? await unreadCount() : 0;
   const role = dict.roles[account.role].name;
   const status = account.verificationStatus === "not_required" ? "" : ` · ${dict.verification[account.verificationStatus]}`;
   return (
+    <>
+    {account.permissions.includes("messages.send") ? (
+      <Link
+        href={`/${locale}/messages`}
+        className="relative flex size-10 items-center justify-center rounded-full border border-white/15 text-base hover:border-white/30"
+        aria-label={unread ? `${dict.messages.crumb} (${unread})` : dict.messages.crumb}
+      >
+        <span aria-hidden>✉️</span>
+        {unread ? <span className="nav-badge">{unread > 9 ? "9+" : unread}</span> : null}
+      </Link>
+    ) : null}
     <AccountMenu
       locale={locale}
       name={account.displayName}
@@ -66,7 +79,9 @@ async function AuthNav({ locale, dict }: { locale: Locale; dict: Messages }) {
         account: dict.profile.nav.account,
         favorites: dict.favorites.crumb,
         listings: dict.listings.crumb,
+        messages: dict.messages.crumb,
       }}
     />
+    </>
   );
 }

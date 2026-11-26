@@ -9,6 +9,8 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { requireAccount } from "@/lib/auth/dal";
 import type { Visibility } from "@/lib/profile/options";
 import { createClient } from "@/lib/supabase/server";
+import { setAcceptMessages, setBlocked } from "@/lib/messages/actions";
+import { messagePrefs } from "@/lib/messages/queries";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/dashboard/account">): Promise<Metadata> {
   const { locale } = await params;
@@ -59,6 +61,7 @@ async function AccountSettings({ locale, dict }: { locale: Locale; dict: Message
           t={t}
         />
       </section>
+      {account.permissions.includes("messages.send") ? <MessageSettings userId={account.id} dict={dict} /> : null}
       <section className="card-box">
         <h3>{a.emailTitle}</h3>
         <EmailForm locale={locale} email={account.email ?? ""} t={t} />
@@ -73,5 +76,42 @@ async function AccountSettings({ locale, dict }: { locale: Locale; dict: Message
         <DeleteAccountForm locale={locale} t={t} />
       </section>
     </div>
+  );
+}
+
+async function MessageSettings({ userId, dict }: { userId: string; dict: Messages }) {
+  const prefs = await messagePrefs(userId);
+  const t = dict.messages;
+  return (
+    <section className="card-box flex flex-col gap-4">
+      <h3 className="!mb-0">{t.settingsTitle}</h3>
+      <form action={setAcceptMessages} className="flex flex-wrap items-center justify-between gap-3">
+        <label className="form-check">
+          <input type="checkbox" name="accept" defaultChecked={prefs.acceptMessages} />
+          <span>{t.acceptNew}</span>
+        </label>
+        <button type="submit" className="btn btn-ghost-light btn-sm">{dict.profile.save}</button>
+      </form>
+      <p className="form-hint">{t.acceptNewHint}</p>
+      <div className="border-t border-line pt-4">
+        <p className="form-section-title">{t.blockedTitle}</p>
+        {prefs.blocked.length ? (
+          <ul className="flex flex-col divide-y divide-line">
+            {prefs.blocked.map((b) => (
+              <li key={b.id} className="flex items-center justify-between gap-3 py-2 text-[13.5px]">
+                <span>{b.name ?? t.unknownUser}</span>
+                <form action={setBlocked}>
+                  <input type="hidden" name="userId" value={b.id} />
+                  <input type="hidden" name="block" value="0" />
+                  <button type="submit" className="btn btn-ghost-light btn-sm">{t.unblock}</button>
+                </form>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-[13.5px] text-muted">{t.noneBlocked}</p>
+        )}
+      </div>
+    </section>
   );
 }

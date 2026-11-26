@@ -156,10 +156,15 @@ async function ListingView({ listing, locale, dict, account }: { listing: Listin
                     <h3 className="!mb-0">{l.yourApplication}</h3>
                     <span className={`status-pill ${listing.my_application}`}>{l.applicationStatus[listing.my_application]}</span>
                     {listing.my_message ? <p className="text-muted italic">“{listing.my_message}”</p> : null}
-                    <form action={withdrawApplication}>
-                      <input type="hidden" name="listingId" value={listing.id} />
-                      <button type="submit" className="btn btn-danger-outline btn-sm">{l.withdraw}</button>
-                    </form>
+                    <div className="flex flex-wrap gap-2">
+                      {account.permissions.includes("messages.send") ? (
+                        <Link href={`/${locale}/messages/new?to=${listing.owner_id}&listing=${listing.id}`} className="btn btn-gold btn-sm">✉️ {dict.messages.write}</Link>
+                      ) : null}
+                      <form action={withdrawApplication}>
+                        <input type="hidden" name="listingId" value={listing.id} />
+                        <button type="submit" className="btn btn-danger-outline btn-sm">{l.withdraw}</button>
+                      </form>
+                    </div>
                   </div>
                 ) : canApply ? (
                   <>
@@ -170,6 +175,11 @@ async function ListingView({ listing, locale, dict, account }: { listing: Listin
                 ) : (
                   <div className="flex flex-col gap-3 text-[13.5px]">
                     <h3 className="!mb-0">{isClub ? l.applyTitle : l.contactTitle}</h3>
+                    {!isClub && account.permissions.includes("messages.send") ? (
+                      <Link href={`/${locale}/messages/new?to=${listing.owner_id}&listing=${listing.id}`} className="btn btn-gold btn-sm self-start">
+                        ✉️ {dict.messages.contact}
+                      </Link>
+                    ) : null}
                     <p className="text-muted">
                       {!isClub ? l.contactHint : !active ? l.cannotApplyClosed : account.permissions.includes("offers.apply") ? l.cannotApply : l.cannotApplyRole}
                     </p>
@@ -267,6 +277,9 @@ function OwnerPanel({ listing, locale, dict, now, expired, candidates }: {
                   {c.message ? <p className="rounded-[10px] bg-paper-soft px-3 py-2 text-[13.5px] whitespace-pre-line">{c.message}</p> : null}
                   <form action={setApplicationStatus} className="flex flex-wrap gap-2">
                     <input type="hidden" name="id" value={c.id} />
+                    <Link href={`/${locale}/messages/new?to=${c.applicant_id}&listing=${listing.id}`} className="btn btn-gold btn-sm !px-3 !py-1.5 !text-[12.5px]">
+                      ✉️ {dict.messages.write}
+                    </Link>
                     {applicationStatuses.filter((s) => s !== c.status).map((s) => (
                       <button key={s} name="status" value={s} className="btn btn-ghost-light btn-sm !px-3 !py-1.5 !text-[12.5px]">
                         {l.setStatus[s]}

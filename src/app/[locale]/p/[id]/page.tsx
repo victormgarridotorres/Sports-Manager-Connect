@@ -7,6 +7,7 @@ import { PositionPitchView } from "@/components/profile/position-pitch";
 import { VideoCard } from "@/components/profile/video-card";
 import { FavoriteButton } from "@/components/move/favorite-button";
 import { followState } from "@/lib/move/queries";
+import { canMessage } from "@/lib/messages/queries";
 import { hasLocale, type Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries/es";
 import { format } from "@/i18n/format";
@@ -46,7 +47,8 @@ async function PublicProfile({ params }: { params: PageProps<"/[locale]/p/[id]">
   const follow = viewer ? await followState(full.profile.id) : null;
   const canFollow = !!viewer && !isOwner && viewer.permissions.includes("profiles.follow");
   const now = await requestNow();
-  return <ProfileView full={full} locale={locale} dict={dict} isOwner={isOwner} follow={follow} canFollow={canFollow} now={now} />;
+  const messageable = !!viewer && !isOwner && (await canMessage(full.profile.id));
+  return <ProfileView full={full} locale={locale} dict={dict} isOwner={isOwner} follow={follow} canFollow={canFollow} now={now} messageable={messageable} />;
 }
 
 function ProfileView({
@@ -57,6 +59,7 @@ function ProfileView({
   follow,
   canFollow,
   now,
+  messageable,
 }: {
   full: FullProfile;
   locale: Locale;
@@ -65,6 +68,7 @@ function ProfileView({
   follow: { followers: number; following: boolean } | null;
   canFollow: boolean;
   now: Date;
+  messageable: boolean;
 }) {
   const { profile, player, professional, club } = full;
   const pp = dict.publicProfile;
@@ -153,14 +157,19 @@ function ProfileView({
                 {pp.editMine}
               </Link>
             </div>
-          ) : canFollow ? (
-            <div className="flex flex-wrap gap-2.5 sm:ml-auto">
-              <FavoriteButton
+          ) : canFollow || messageable ? (
+            <div className="flex flex-wrap items-start gap-2.5 sm:ml-auto">
+              {messageable ? (
+                <Link href={`/${locale}/messages/new?to=${profile.id}`} className="btn btn-gold">
+                  ✉️ {dict.messages.sendMessage}
+                </Link>
+              ) : null}
+              {canFollow ? <FavoriteButton
                 profileId={profile.id}
                 initial={follow?.following ?? false}
                 variant="button"
                 labels={{ follow: dict.move.follow, following: dict.move.following, error: dict.auth.errors.generic }}
-              />
+              /> : null}
             </div>
           ) : null}
         </div>
