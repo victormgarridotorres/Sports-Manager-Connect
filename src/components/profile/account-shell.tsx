@@ -15,7 +15,7 @@ export function AccountShell({
 }: {
   locale: Locale;
   dict: Messages;
-  current: "profile" | "account";
+  current: "profile" | "account" | "forum";
   title: string;
   lead: string;
   children: ReactNode;
@@ -27,14 +27,14 @@ export function AccountShell({
         crumbs={[
           { label: dict.nav.home, href: `/${locale}` },
           { label: p.nav.dashboard, href: `/${locale}/dashboard` },
-          { label: current === "profile" ? p.nav.profile : p.nav.account },
+          { label: current === "profile" ? p.nav.profile : current === "forum" ? p.nav.forum : p.nav.account },
         ]}
         eyebrow={p.eyebrow}
         title={title}
         lead={lead}
       />
       <PageBody>
-        <div className="mx-auto max-w-[860px]">
+        <div className={`mx-auto ${current === "forum" ? "max-w-[640px]" : "max-w-[860px]"}`}>
           <SettingsNav locale={locale} current={current} t={p.nav} />
           {children}
         </div>

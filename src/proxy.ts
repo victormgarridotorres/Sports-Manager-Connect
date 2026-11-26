@@ -7,10 +7,11 @@ import {
 } from "@/i18n/config";
 import { isLegalSlug } from "@/content/legal";
 import { roles } from "@/lib/auth/permissions";
+import { isForumCategory } from "@/lib/forum/options";
 import { redirectWithCookies, updateSession } from "@/lib/supabase/proxy";
 
 // Rutas (sin el prefijo de idioma) que exigen sesión.
-const PROTECTED = ["/dashboard", "/reset-password", "/move", "/favorites", "/listings", "/messages"];
+const PROTECTED = ["/dashboard", "/reset-password", "/move", "/favorites", "/listings", "/messages", "/community"];
 // Rutas sólo para usuarios sin sesión.
 const GUEST_ONLY = ["/login", "/signup", "/forgot-password"];
 
@@ -50,6 +51,15 @@ export async function proxy(request: NextRequest) {
   if (legalDoc && !isLegalSlug(legalDoc)) {
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}/legal/legal-notice`;
+    return NextResponse.redirect(url);
+  }
+
+  // Categoría del foro inexistente -> portada de Comunidad.
+  const forumCat = pathname.match(new RegExp(`^/${locale}/community/([^/]+)/?$`))?.[1];
+  if (forumCat && forumCat !== "new" && !isForumCategory(forumCat)) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}/community`;
+    url.search = "";
     return NextResponse.redirect(url);
   }
 

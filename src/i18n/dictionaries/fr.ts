@@ -148,6 +148,10 @@ const fr: Messages = {
       emptyMessage: "Écrivez un message ou joignez un fichier.",
       invalidAttachment: "Seuls les PDF ou images (JPG, PNG, WebP) peuvent être joints.",
       attachmentTooLarge: "Le fichier dépasse 5 Mo.",
+      aliasRequired: "Choisissez d'abord votre pseudo du forum.",
+      aliasTaken: "Ce pseudo est déjà pris. Essayez-en un autre.",
+      topicClosed: "Ce sujet est fermé.",
+      topicHasReplies: "Vous ne pouvez pas supprimer un sujet auquel d'autres personnes ont déjà répondu.",
     },
     fieldErrors: {
       required: "Champ obligatoire.",
@@ -157,6 +161,10 @@ const fr: Messages = {
       invalid: "Valeur non valide.",
       video: "Collez un lien YouTube ou Vimeo.",
       description: "20 caractères minimum.",
+      alias: "De 3 à 24 caractères, sans espaces ni symboles comme @, / ou #.",
+      aliasTaken: "Ce pseudo est déjà pris.",
+      topicTitle: "Entre 5 et 140 caractères.",
+      topicBody: "10 caractères minimum.",
     },
   },
   dashboard: {
@@ -302,7 +310,8 @@ const fr: Messages = {
       "dashboard": "Mon espace",
       "profile": "Mon profil",
       "account": "Paramètres du compte",
-      "viewPublic": "Voir mon profil public"
+      "viewPublic": "Voir mon profil public",
+      "forum": "Profil du forum"
     },
     "tabs": {
       "basics": "Informations de base",
@@ -709,6 +718,161 @@ const fr: Messages = {
     "blockedTitle": "Utilisateurs bloqués",
     "unknownUser": "Utilisateur",
     "noneBlocked": "Vous n'avez bloqué personne."
+  },
+  community: {
+    "crumb": "Communauté",
+    "eyebrow": "Forum",
+    "title": "*Communauté* : le point de rencontre du handball mondial",
+    "lead": "Vous voulez parler transferts, tactique ou actualité avec les plus connaisseurs ? Fans et professionnel(le)s du monde entier se retrouvent ici.",
+    "categories": {
+      "transfers": {
+        "name": "Transferts et marché",
+        "description": "Rumeurs, mouvements et analyses du marché."
+      },
+      "tactics": {
+        "name": "Tactique et entraînement",
+        "description": "Systèmes de jeu, méthodologie et analyse."
+      },
+      "rules": {
+        "name": "Règles et arbitrage",
+        "description": "Questions de règlement et cas d'arbitrage."
+      },
+      "international": {
+        "name": "Handball international",
+        "description": "Championnats, sélections et compétitions du monde entier."
+      },
+      "offtopic": {
+        "name": "Hors-sujet",
+        "description": "Discussion libre de la communauté."
+      },
+      "introductions": {
+        "name": "Présentations",
+        "description": "Nouveaux dans la communauté, présentez-vous ici."
+      }
+    },
+    "topicsCount": "{n} sujets",
+    "topicsCountOne": "1 sujet",
+    "postsCount": "{n} messages",
+    "postsCountOne": "1 message",
+    "recent": "Sujets récents",
+    "newTopic": "Créer un sujet",
+    "emptyForum": "Pas encore de sujets. Lancez le premier !",
+    "categoryEyebrow": "Catégorie du forum",
+    "inCategory": "Sujets dans cette catégorie",
+    "emptyCategory": "Il n'y a pas encore de sujets dans cette catégorie. Soyez le premier à publier !",
+    "startedBy": "lancé par {alias}",
+    "byYou": "lancé par vous",
+    "deletedUser": "Utilisateur supprimé",
+    "locked": "Fermé",
+    "hiddenFlag": "Masqué",
+    "replies": "{n} réponses",
+    "repliesOne": "1 réponse",
+    "justNow": "à l'instant",
+    "you": "Vous",
+    "backToForum": "Retour à Communauté",
+    "cannotWrite": "Votre compte ne peut pas publier sur le forum.",
+    "aliasNotice": {
+      "title": "Choisissez votre pseudo pour participer",
+      "text": "Votre vrai nom et votre photo ne sont jamais affichés dans Communauté : seulement un pseudo et un avatar neutre.",
+      "cta": "Créer mon pseudo"
+    },
+    "thread": {
+      "original": "Message original",
+      "replies": "Réponses",
+      "noReplies": "Pas encore de réponses. Soyez le premier !",
+      "yourReply": "Votre réponse",
+      "replyPlaceholder": "Écrivez une réponse…",
+      "postReply": "Publier la réponse",
+      "postingAs": "Vous publierez en tant que {alias}.",
+      "edit": "Modifier",
+      "saveEdit": "Enregistrer",
+      "delete": "Supprimer",
+      "deleteFinal": "Oui, supprimer",
+      "deletePostConfirm": "Supprimer cette réponse ? C'est définitif.",
+      "deleteTopicConfirm": "Supprimer ce sujet ? Ce n'est possible que tant que personne d'autre n'a répondu.",
+      "deleted": "Sujet supprimé.",
+      "posted": "Sujet publié ! Il est déjà dans Communauté.",
+      "edited": "modifié",
+      "op": "Auteur",
+      "hiddenByReports": "Masqué après plusieurs signalements, en attente de vérification. Seuls vous (et la modération) le voyez.",
+      "hiddenByModerator": "Retiré par la modération car il ne respecte pas les règles.",
+      "lockedHint": "Ce sujet est fermé et n'accepte plus de réponses.",
+      "hiddenNoReplies": "Ce sujet est masqué et n'accepte pas de réponses.",
+      "notFoundTitle": "Sujet indisponible",
+      "notFound": "Ce sujet n'existe pas ou n'est plus disponible."
+    },
+    "report": {
+      "action": "Signaler",
+      "reasonLabel": "Quel est le problème ?",
+      "reasons": {
+        "spam": "Spam ou publicité",
+        "abuse": "Insultes ou harcèlement",
+        "personal_data": "Données personnelles d'une personne",
+        "off_topic": "Hors-sujet",
+        "other": "Autre raison"
+      },
+      "noteLabel": "Détails",
+      "notePlaceholder": "Détails (facultatif)",
+      "hint": "Votre signalement est anonyme. Après plusieurs signalements, le contenu est masqué jusqu'à notre vérification.",
+      "submit": "Envoyer le signalement",
+      "thanks": "Merci, nous allons vérifier.",
+      "done": "Signalé"
+    },
+    "moderation": {
+      "hide": "Masquer",
+      "restore": "Rétablir",
+      "lock": "Fermer le sujet",
+      "unlock": "Rouvrir le sujet"
+    },
+    "form": {
+      "crumb": "Créer un sujet",
+      "eyebrow": "Nouveau sujet",
+      "heading": "Ouvrez un *sujet* sur le forum",
+      "lead": "Votre sujet apparaît instantanément dans Communauté, dans la catégorie de votre choix, prêt à recevoir les réponses de la communauté.",
+      "category": "Catégorie",
+      "title": "Titre du sujet",
+      "titlePlaceholder": "ex. Que pensez-vous du nouveau format des play-offs ?",
+      "body": "Message",
+      "bodyPlaceholder": "Dites-nous de quoi vous voulez parler…",
+      "rulesHint": "Respectez les autres et ne publiez pas de données personnelles (les vôtres ni celles d'autrui) : le forum est anonyme.",
+      "submit": "Publier le sujet",
+      "preview": "Aperçu en direct",
+      "previewHint": "Voici à quoi ressemblera votre sujet dans Communauté dès sa publication."
+    },
+    "profile": {
+      "notFoundTitle": "Profil introuvable",
+      "notFound": "Personne n'utilise ce pseudo sur le forum.",
+      "topics": "Sujets",
+      "replies": "Réponses",
+      "memberSince": "Sur le forum depuis {date}",
+      "anonymous": "Identité anonyme",
+      "editMine": "Modifier mon profil du forum",
+      "topicsBy": "Sujets de {alias}",
+      "noTopics": "Aucun sujet lancé pour l'instant."
+    },
+    "identity": {
+      "crumb": "Profil du forum",
+      "title": "Votre identité *anonyme* sur le forum",
+      "lead": "Votre vrai nom et votre photo de profil ne sont jamais affichés dans Communauté : seulement ce pseudo, pour que vous puissiez vous exprimer en toute liberté.",
+      "yourAlias": "Votre pseudo",
+      "aliasLabel": "Nom affiché sur le forum",
+      "aliasHint": "De 3 à 24 caractères, sans espaces. Il n'est jamais affiché à côté de votre vrai nom.",
+      "regenerate": "Générer un autre pseudo",
+      "avatarTitle": "Avatar anonyme",
+      "avatarHint": "Une icône neutre, pas votre vraie photo.",
+      "avatars": {
+        "eagle": "Aigle",
+        "fox": "Renard",
+        "wolf": "Loup",
+        "lion": "Lion",
+        "tiger": "Tigre",
+        "owl": "Hibou"
+      },
+      "preview": "Comment les autres vous verront",
+      "save": "Enregistrer",
+      "saveAndGo": "Enregistrer et voir le forum",
+      "saved": "Profil du forum enregistré."
+    }
   },
   common: {
     loading: "Chargement…",

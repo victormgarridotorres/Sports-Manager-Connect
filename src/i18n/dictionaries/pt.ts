@@ -148,6 +148,10 @@ const pt: Messages = {
       emptyMessage: "Escreve uma mensagem ou anexa um ficheiro.",
       invalidAttachment: "Só é possível anexar PDF ou imagens (JPG, PNG, WebP).",
       attachmentTooLarge: "O ficheiro tem mais de 5 MB.",
+      aliasRequired: "Escolhe primeiro o teu alias do fórum.",
+      aliasTaken: "Esse alias já está ocupado. Experimenta outro.",
+      topicClosed: "Este tópico está fechado.",
+      topicHasReplies: "Não podes apagar um tópico a que outras pessoas já responderam.",
     },
     fieldErrors: {
       required: "Campo obrigatório.",
@@ -157,6 +161,10 @@ const pt: Messages = {
       invalid: "Valor inválido.",
       video: "Cola uma ligação do YouTube ou do Vimeo.",
       description: "Mínimo de 20 caracteres.",
+      alias: "De 3 a 24 caracteres, sem espaços nem símbolos como @, / ou #.",
+      aliasTaken: "Esse alias já está ocupado.",
+      topicTitle: "Entre 5 e 140 caracteres.",
+      topicBody: "Mínimo de 10 caracteres.",
     },
   },
   dashboard: {
@@ -302,7 +310,8 @@ const pt: Messages = {
       "dashboard": "O meu painel",
       "profile": "O meu perfil",
       "account": "Definições da conta",
-      "viewPublic": "Ver o meu perfil público"
+      "viewPublic": "Ver o meu perfil público",
+      "forum": "Perfil do fórum"
     },
     "tabs": {
       "basics": "Dados básicos",
@@ -709,6 +718,161 @@ const pt: Messages = {
     "blockedTitle": "Utilizadores bloqueados",
     "unknownUser": "Utilizador",
     "noneBlocked": "Não bloqueaste ninguém."
+  },
+  community: {
+    "crumb": "Comunidade",
+    "eyebrow": "Fórum",
+    "title": "*Comunidade*: o ponto de encontro do andebol mundial",
+    "lead": "Queres falar de transferências, tática ou atualidade com quem mais sabe? Adeptos e profissionais de todo o mundo reúnem-se aqui.",
+    "categories": {
+      "transfers": {
+        "name": "Transferências e mercado",
+        "description": "Rumores, movimentos e análises de mercado."
+      },
+      "tactics": {
+        "name": "Tática e treino",
+        "description": "Sistemas de jogo, metodologia e análise."
+      },
+      "rules": {
+        "name": "Regras e arbitragem",
+        "description": "Dúvidas regulamentares e casos de arbitragem."
+      },
+      "international": {
+        "name": "Andebol internacional",
+        "description": "Ligas, seleções e competições de todo o mundo."
+      },
+      "offtopic": {
+        "name": "Off-topic",
+        "description": "Conversa livre da comunidade."
+      },
+      "introductions": {
+        "name": "Apresentações",
+        "description": "Novos na comunidade, apresentem-se aqui."
+      }
+    },
+    "topicsCount": "{n} tópicos",
+    "topicsCountOne": "1 tópico",
+    "postsCount": "{n} mensagens",
+    "postsCountOne": "1 mensagem",
+    "recent": "Tópicos recentes",
+    "newTopic": "Criar tópico",
+    "emptyForum": "Ainda não há tópicos. Abre o primeiro!",
+    "categoryEyebrow": "Categoria do fórum",
+    "inCategory": "Tópicos nesta categoria",
+    "emptyCategory": "Ainda não há tópicos nesta categoria. Sê o primeiro a publicar!",
+    "startedBy": "iniciado por {alias}",
+    "byYou": "iniciado por ti",
+    "deletedUser": "Utilizador eliminado",
+    "locked": "Fechado",
+    "hiddenFlag": "Oculto",
+    "replies": "{n} respostas",
+    "repliesOne": "1 resposta",
+    "justNow": "agora mesmo",
+    "you": "Tu",
+    "backToForum": "Voltar à Comunidade",
+    "cannotWrite": "A tua conta não pode publicar no fórum.",
+    "aliasNotice": {
+      "title": "Escolhe o teu alias para participar",
+      "text": "Na Comunidade nunca se mostra o teu nome real nem a tua foto: só um alias e um avatar neutro.",
+      "cta": "Criar o meu alias"
+    },
+    "thread": {
+      "original": "Mensagem original",
+      "replies": "Respostas",
+      "noReplies": "Ainda não há respostas. Sê o primeiro!",
+      "yourReply": "A tua resposta",
+      "replyPlaceholder": "Escreve uma resposta…",
+      "postReply": "Publicar resposta",
+      "postingAs": "Vais publicar como {alias}.",
+      "edit": "Editar",
+      "saveEdit": "Guardar alterações",
+      "delete": "Apagar",
+      "deleteFinal": "Sim, apagar",
+      "deletePostConfirm": "Apagar esta resposta? Não é possível desfazer.",
+      "deleteTopicConfirm": "Apagar este tópico? Só o podes fazer enquanto mais ninguém tiver respondido.",
+      "deleted": "Tópico apagado.",
+      "posted": "Tópico publicado! Já está na Comunidade.",
+      "edited": "editado",
+      "op": "Autor",
+      "hiddenByReports": "Oculto após várias denúncias, a aguardar revisão. Só tu (e a moderação) o vês.",
+      "hiddenByModerator": "Retirado pela moderação por não cumprir as regras.",
+      "lockedHint": "Este tópico está fechado e já não aceita respostas.",
+      "hiddenNoReplies": "Este tópico está oculto e não aceita respostas.",
+      "notFoundTitle": "Tópico indisponível",
+      "notFound": "Este tópico não existe ou já não está disponível."
+    },
+    "report": {
+      "action": "Denunciar",
+      "reasonLabel": "O que se passa?",
+      "reasons": {
+        "spam": "Spam ou publicidade",
+        "abuse": "Insultos ou assédio",
+        "personal_data": "Dados pessoais de alguém",
+        "off_topic": "Fora do tema",
+        "other": "Outro motivo"
+      },
+      "noteLabel": "Detalhes",
+      "notePlaceholder": "Detalhes (opcional)",
+      "hint": "A tua denúncia é anónima. Com várias denúncias, o conteúdo fica oculto até o revermos.",
+      "submit": "Enviar denúncia",
+      "thanks": "Obrigado, vamos rever.",
+      "done": "Denunciado"
+    },
+    "moderation": {
+      "hide": "Ocultar",
+      "restore": "Restaurar",
+      "lock": "Fechar tópico",
+      "unlock": "Reabrir tópico"
+    },
+    "form": {
+      "crumb": "Criar tópico",
+      "eyebrow": "Novo tópico",
+      "heading": "Abre um *tópico* no fórum",
+      "lead": "O teu tópico aparece de imediato na Comunidade, na categoria que escolheres, pronto para o resto da comunidade responder.",
+      "category": "Categoria",
+      "title": "Título do tópico",
+      "titlePlaceholder": "p. ex. O que acham do novo formato dos play-offs?",
+      "body": "Mensagem",
+      "bodyPlaceholder": "Conta de que queres falar…",
+      "rulesHint": "Respeita os outros e não publiques dados pessoais (teus nem de ninguém): o fórum é anónimo.",
+      "submit": "Publicar tópico",
+      "preview": "Pré-visualização em direto",
+      "previewHint": "É assim que o teu tópico vai aparecer na Comunidade assim que o publicares."
+    },
+    "profile": {
+      "notFoundTitle": "Perfil não encontrado",
+      "notFound": "Ninguém no fórum usa esse alias.",
+      "topics": "Tópicos",
+      "replies": "Respostas",
+      "memberSince": "No fórum desde {date}",
+      "anonymous": "Identidade anónima",
+      "editMine": "Editar o meu perfil do fórum",
+      "topicsBy": "Tópicos de {alias}",
+      "noTopics": "Ainda não abriu nenhum tópico."
+    },
+    "identity": {
+      "crumb": "Perfil do fórum",
+      "title": "A tua identidade *anónima* no fórum",
+      "lead": "Na Comunidade nunca se mostra o teu nome real nem a tua foto de perfil: só este alias, para que possas opinar com total liberdade.",
+      "yourAlias": "O teu alias",
+      "aliasLabel": "Nome visível no fórum",
+      "aliasHint": "De 3 a 24 caracteres, sem espaços. Nunca aparece junto do teu nome real.",
+      "regenerate": "Gerar outro alias",
+      "avatarTitle": "Avatar anónimo",
+      "avatarHint": "Um ícone neutro, não a tua foto real.",
+      "avatars": {
+        "eagle": "Águia",
+        "fox": "Raposa",
+        "wolf": "Lobo",
+        "lion": "Leão",
+        "tiger": "Tigre",
+        "owl": "Coruja"
+      },
+      "preview": "Assim te vão ver no fórum",
+      "save": "Guardar alterações",
+      "saveAndGo": "Guardar e ver o fórum",
+      "saved": "Perfil do fórum guardado."
+    }
   },
   common: {
     loading: "A carregar…",

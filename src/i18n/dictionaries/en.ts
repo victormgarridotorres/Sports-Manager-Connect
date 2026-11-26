@@ -148,6 +148,10 @@ const en: Messages = {
       emptyMessage: "Write a message or attach a file.",
       invalidAttachment: "Only PDFs or images (JPG, PNG, WebP) can be attached.",
       attachmentTooLarge: "The file is larger than 5 MB.",
+      aliasRequired: "Choose your forum alias first.",
+      aliasTaken: "That alias is already taken. Try another one.",
+      topicClosed: "This topic is closed.",
+      topicHasReplies: "You can't delete a topic that other people have already replied to.",
     },
     fieldErrors: {
       required: "This field is required.",
@@ -157,6 +161,10 @@ const en: Messages = {
       invalid: "Invalid value.",
       video: "Paste a YouTube or Vimeo link.",
       description: "At least 20 characters.",
+      alias: "3 to 24 characters, no spaces or symbols like @, / or #.",
+      aliasTaken: "That alias is already taken.",
+      topicTitle: "Between 5 and 140 characters.",
+      topicBody: "At least 10 characters.",
     },
   },
   dashboard: {
@@ -302,7 +310,8 @@ const en: Messages = {
       "dashboard": "My dashboard",
       "profile": "My profile",
       "account": "Account settings",
-      "viewPublic": "View my public profile"
+      "viewPublic": "View my public profile",
+      "forum": "Forum profile"
     },
     "tabs": {
       "basics": "Basic details",
@@ -709,6 +718,161 @@ const en: Messages = {
     "blockedTitle": "Blocked users",
     "unknownUser": "User",
     "noneBlocked": "You haven't blocked anyone."
+  },
+  community: {
+    "crumb": "Community",
+    "eyebrow": "Forum",
+    "title": "*Community*: the meeting point of world handball",
+    "lead": "Want to talk transfers, tactics or the latest news with those who know best? Fans and professionals from all over the world gather here.",
+    "categories": {
+      "transfers": {
+        "name": "Transfers and market",
+        "description": "Rumours, moves and market analysis."
+      },
+      "tactics": {
+        "name": "Tactics and training",
+        "description": "Playing systems, methodology and analysis."
+      },
+      "rules": {
+        "name": "Rules and refereeing",
+        "description": "Rules questions and refereeing cases."
+      },
+      "international": {
+        "name": "International handball",
+        "description": "Leagues, national teams and competitions around the world."
+      },
+      "offtopic": {
+        "name": "Off-topic",
+        "description": "Free-form community chat."
+      },
+      "introductions": {
+        "name": "Introductions",
+        "description": "New to the community? Introduce yourself here."
+      }
+    },
+    "topicsCount": "{n} topics",
+    "topicsCountOne": "1 topic",
+    "postsCount": "{n} posts",
+    "postsCountOne": "1 post",
+    "recent": "Recent topics",
+    "newTopic": "New topic",
+    "emptyForum": "No topics yet. Start the first one!",
+    "categoryEyebrow": "Forum category",
+    "inCategory": "Topics in this category",
+    "emptyCategory": "There are no topics in this category yet. Be the first to post!",
+    "startedBy": "started by {alias}",
+    "byYou": "started by you",
+    "deletedUser": "Deleted user",
+    "locked": "Closed",
+    "hiddenFlag": "Hidden",
+    "replies": "{n} replies",
+    "repliesOne": "1 reply",
+    "justNow": "just now",
+    "you": "You",
+    "backToForum": "Back to Community",
+    "cannotWrite": "Your account can't post in the forum.",
+    "aliasNotice": {
+      "title": "Choose your alias to take part",
+      "text": "Your real name and photo are never shown in Community: only an alias and a neutral avatar.",
+      "cta": "Create my alias"
+    },
+    "thread": {
+      "original": "Original post",
+      "replies": "Replies",
+      "noReplies": "No replies yet. Be the first!",
+      "yourReply": "Your reply",
+      "replyPlaceholder": "Write a reply…",
+      "postReply": "Post reply",
+      "postingAs": "You'll post as {alias}.",
+      "edit": "Edit",
+      "saveEdit": "Save changes",
+      "delete": "Delete",
+      "deleteFinal": "Yes, delete",
+      "deletePostConfirm": "Delete this reply? This can't be undone.",
+      "deleteTopicConfirm": "Delete this topic? You can only do this while nobody else has replied.",
+      "deleted": "Topic deleted.",
+      "posted": "Topic posted! It's already in Community.",
+      "edited": "edited",
+      "op": "Author",
+      "hiddenByReports": "Hidden after several reports, pending review. Only you (and the moderators) can see it.",
+      "hiddenByModerator": "Removed by the moderators for breaking the rules.",
+      "lockedHint": "This topic is closed and no longer accepts replies.",
+      "hiddenNoReplies": "This topic is hidden and doesn't accept replies.",
+      "notFoundTitle": "Topic unavailable",
+      "notFound": "This topic doesn't exist or is no longer available."
+    },
+    "report": {
+      "action": "Report",
+      "reasonLabel": "What's wrong?",
+      "reasons": {
+        "spam": "Spam or advertising",
+        "abuse": "Insults or harassment",
+        "personal_data": "Someone's personal data",
+        "off_topic": "Off-topic",
+        "other": "Something else"
+      },
+      "noteLabel": "Details",
+      "notePlaceholder": "Details (optional)",
+      "hint": "Your report is anonymous. After several reports, the content is hidden until we review it.",
+      "submit": "Send report",
+      "thanks": "Thanks, we'll review it.",
+      "done": "Reported"
+    },
+    "moderation": {
+      "hide": "Hide",
+      "restore": "Restore",
+      "lock": "Close topic",
+      "unlock": "Reopen topic"
+    },
+    "form": {
+      "crumb": "New topic",
+      "eyebrow": "New topic",
+      "heading": "Start a *topic* in the forum",
+      "lead": "Your topic appears instantly in Community, in the category you choose, ready for the rest of the community to reply.",
+      "category": "Category",
+      "title": "Topic title",
+      "titlePlaceholder": "e.g. What do you think of the new play-off format?",
+      "body": "Message",
+      "bodyPlaceholder": "Tell us what you want to talk about…",
+      "rulesHint": "Be respectful and don't post personal data (yours or anyone else's): the forum is anonymous.",
+      "submit": "Post topic",
+      "preview": "Live preview",
+      "previewHint": "This is how your topic will look in Community as soon as you post it."
+    },
+    "profile": {
+      "notFoundTitle": "Profile not found",
+      "notFound": "Nobody in the forum uses that alias.",
+      "topics": "Topics",
+      "replies": "Replies",
+      "memberSince": "In the forum since {date}",
+      "anonymous": "Anonymous identity",
+      "editMine": "Edit my forum profile",
+      "topicsBy": "Topics by {alias}",
+      "noTopics": "No topics started yet."
+    },
+    "identity": {
+      "crumb": "Forum profile",
+      "title": "Your *anonymous* identity in the forum",
+      "lead": "Your real name and profile photo are never shown in Community: only this alias, so you can speak your mind freely.",
+      "yourAlias": "Your alias",
+      "aliasLabel": "Name shown in the forum",
+      "aliasHint": "3 to 24 characters, no spaces. It's never shown next to your real name.",
+      "regenerate": "Generate another alias",
+      "avatarTitle": "Anonymous avatar",
+      "avatarHint": "A neutral icon, not your real photo.",
+      "avatars": {
+        "eagle": "Eagle",
+        "fox": "Fox",
+        "wolf": "Wolf",
+        "lion": "Lion",
+        "tiger": "Tiger",
+        "owl": "Owl"
+      },
+      "preview": "How others will see you in the forum",
+      "save": "Save changes",
+      "saveAndGo": "Save and go to the forum",
+      "saved": "Forum profile saved."
+    }
   },
   common: {
     loading: "Loading…",

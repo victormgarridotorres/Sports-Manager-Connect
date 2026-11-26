@@ -149,6 +149,10 @@ const es = {
       emptyMessage: "Escribe un mensaje o adjunta un archivo.",
       invalidAttachment: "Solo se pueden adjuntar PDF o imágenes (JPG, PNG, WebP).",
       attachmentTooLarge: "El archivo supera los 5 MB.",
+      aliasRequired: "Elige primero tu alias del foro.",
+      aliasTaken: "Ese alias ya está cogido. Prueba con otro.",
+      topicClosed: "Este tema está cerrado.",
+      topicHasReplies: "No puedes borrar un tema en el que ya han respondido otras personas.",
     },
     fieldErrors: {
       required: "Campo obligatorio.",
@@ -158,6 +162,10 @@ const es = {
       invalid: "Valor no válido.",
       video: "Pega un enlace de YouTube o Vimeo.",
       description: "Mínimo 20 caracteres.",
+      alias: "De 3 a 24 caracteres, sin espacios ni símbolos como @, / o #.",
+      aliasTaken: "Ese alias ya está cogido.",
+      topicTitle: "Entre 5 y 140 caracteres.",
+      topicBody: "Mínimo 10 caracteres.",
     },
   },
   dashboard: {
@@ -304,7 +312,8 @@ const es = {
       "dashboard": "Mi panel",
       "profile": "Mi perfil",
       "account": "Ajustes de cuenta",
-      "viewPublic": "Ver mi perfil público"
+      "viewPublic": "Ver mi perfil público",
+      "forum": "Perfil del foro"
     },
     "tabs": {
       "basics": "Datos básicos",
@@ -711,6 +720,161 @@ const es = {
     "blockedTitle": "Usuarios bloqueados",
     "unknownUser": "Usuario",
     "noneBlocked": "No has bloqueado a nadie."
+  },
+  community: {
+    "crumb": "Comunidad",
+    "eyebrow": "Foro",
+    "title": "*Comunidad*: el punto de encuentro del balonmano mundial",
+    "lead": "¿Quieres hablar de fichajes, táctica o actualidad con quien más sabe? Aficionados y profesionales de todo el mundo se reúnen aquí.",
+    "categories": {
+      "transfers": {
+        "name": "Fichajes y mercado",
+        "description": "Rumores, movimientos y análisis de mercado."
+      },
+      "tactics": {
+        "name": "Táctica y entrenamiento",
+        "description": "Sistemas de juego, metodología y análisis."
+      },
+      "rules": {
+        "name": "Reglas y arbitraje",
+        "description": "Dudas reglamentarias y casos de arbitraje."
+      },
+      "international": {
+        "name": "Balonmano internacional",
+        "description": "Ligas, selecciones y competiciones de todo el mundo."
+      },
+      "offtopic": {
+        "name": "Off-topic",
+        "description": "Charla libre de la comunidad."
+      },
+      "introductions": {
+        "name": "Presentaciones",
+        "description": "Nuevos en la comunidad, preséntate aquí."
+      }
+    },
+    "topicsCount": "{n} temas",
+    "topicsCountOne": "1 tema",
+    "postsCount": "{n} mensajes",
+    "postsCountOne": "1 mensaje",
+    "recent": "Temas recientes",
+    "newTopic": "Crear tema",
+    "emptyForum": "Todavía no hay temas. ¡Abre el primero!",
+    "categoryEyebrow": "Categoría del foro",
+    "inCategory": "Temas en esta categoría",
+    "emptyCategory": "Aún no hay temas en esta categoría. ¡Sé el primero en publicar!",
+    "startedBy": "iniciado por {alias}",
+    "byYou": "iniciado por ti",
+    "deletedUser": "Usuario eliminado",
+    "locked": "Cerrado",
+    "hiddenFlag": "Oculto",
+    "replies": "{n} respuestas",
+    "repliesOne": "1 respuesta",
+    "justNow": "ahora mismo",
+    "you": "Tú",
+    "backToForum": "Volver a Comunidad",
+    "cannotWrite": "Tu cuenta no puede publicar en el foro.",
+    "aliasNotice": {
+      "title": "Elige tu alias para participar",
+      "text": "En Comunidad nunca se muestra tu nombre real ni tu foto: solo un alias y un avatar neutro.",
+      "cta": "Crear mi alias"
+    },
+    "thread": {
+      "original": "Mensaje original",
+      "replies": "Respuestas",
+      "noReplies": "Todavía no hay respuestas. ¡Sé el primero!",
+      "yourReply": "Tu respuesta",
+      "replyPlaceholder": "Escribe una respuesta…",
+      "postReply": "Publicar respuesta",
+      "postingAs": "Publicarás como {alias}.",
+      "edit": "Editar",
+      "saveEdit": "Guardar cambios",
+      "delete": "Borrar",
+      "deleteFinal": "Sí, borrar",
+      "deletePostConfirm": "¿Borrar esta respuesta? No se puede deshacer.",
+      "deleteTopicConfirm": "¿Borrar este tema? Solo puedes hacerlo mientras nadie más haya respondido.",
+      "deleted": "Tema borrado.",
+      "posted": "¡Tema publicado! Ya aparece en Comunidad.",
+      "edited": "editado",
+      "op": "Autor",
+      "hiddenByReports": "Oculto tras varias denuncias, pendiente de revisión. Solo lo ves tú (o la moderación).",
+      "hiddenByModerator": "Retirado por la moderación por no cumplir las normas.",
+      "lockedHint": "Este tema está cerrado y ya no admite respuestas.",
+      "hiddenNoReplies": "Este tema está oculto y no admite respuestas.",
+      "notFoundTitle": "Tema no disponible",
+      "notFound": "Este tema no existe o ya no está disponible."
+    },
+    "report": {
+      "action": "Denunciar",
+      "reasonLabel": "¿Qué ocurre?",
+      "reasons": {
+        "spam": "Spam o publicidad",
+        "abuse": "Insultos o acoso",
+        "personal_data": "Datos personales de alguien",
+        "off_topic": "Fuera de tema",
+        "other": "Otro motivo"
+      },
+      "noteLabel": "Detalles",
+      "notePlaceholder": "Detalles (opcional)",
+      "hint": "Tu denuncia es anónima. Con varias denuncias, el contenido se oculta hasta que lo revisemos.",
+      "submit": "Enviar denuncia",
+      "thanks": "Gracias, lo revisaremos.",
+      "done": "Denunciado"
+    },
+    "moderation": {
+      "hide": "Ocultar",
+      "restore": "Restaurar",
+      "lock": "Cerrar tema",
+      "unlock": "Reabrir tema"
+    },
+    "form": {
+      "crumb": "Crear tema",
+      "eyebrow": "Nuevo tema",
+      "heading": "Abre un *tema* en el foro",
+      "lead": "Tu tema aparece al instante en Comunidad, en la categoría que elijas, listo para que el resto de la comunidad responda.",
+      "category": "Categoría",
+      "title": "Título del tema",
+      "titlePlaceholder": "p. ej. ¿Qué os parece el nuevo formato de playoffs?",
+      "body": "Mensaje",
+      "bodyPlaceholder": "Cuenta de qué quieres hablar…",
+      "rulesHint": "Respeta a los demás y no publiques datos personales (tuyos ni de nadie): el foro es anónimo.",
+      "submit": "Publicar tema",
+      "preview": "Vista previa en vivo",
+      "previewHint": "Así se verá tu tema en Comunidad en cuanto lo publiques."
+    },
+    "profile": {
+      "notFoundTitle": "Perfil no encontrado",
+      "notFound": "No hay nadie en el foro con ese alias.",
+      "topics": "Temas",
+      "replies": "Respuestas",
+      "memberSince": "En el foro desde {date}",
+      "anonymous": "Identidad anónima",
+      "editMine": "Editar mi perfil del foro",
+      "topicsBy": "Temas de {alias}",
+      "noTopics": "Todavía no ha abierto ningún tema."
+    },
+    "identity": {
+      "crumb": "Perfil del foro",
+      "title": "Tu identidad *anónima* en el foro",
+      "lead": "En Comunidad nunca se muestra tu nombre real ni tu foto de perfil: solo este alias, para que puedas opinar con total libertad.",
+      "yourAlias": "Tu alias",
+      "aliasLabel": "Nombre visible en el foro",
+      "aliasHint": "De 3 a 24 caracteres, sin espacios. Nunca se muestra junto a tu nombre real.",
+      "regenerate": "Generar otro alias",
+      "avatarTitle": "Avatar anónimo",
+      "avatarHint": "Un icono neutro, no tu foto real.",
+      "avatars": {
+        "eagle": "Águila",
+        "fox": "Zorro",
+        "wolf": "Lobo",
+        "lion": "León",
+        "tiger": "Tigre",
+        "owl": "Búho"
+      },
+      "preview": "Así te verán en el foro",
+      "save": "Guardar cambios",
+      "saveAndGo": "Guardar y ver el foro",
+      "saved": "Perfil del foro guardado."
+    }
   },
   common: {
     loading: "Cargando…",

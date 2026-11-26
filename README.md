@@ -218,6 +218,26 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
   `npx supabase db push --remote`.
 - Pendiente: avisos por email de mensajes nuevos (cuando haya SMTP propio).
 
+## Fase 5: Comunidad (foro)
+
+- **Foro anónimo** (`/{idioma}/community`, requiere sesión): en Comunidad nunca se muestra el nombre
+  real ni la foto. Cada usuario elige un **alias** y un **avatar neutro** en «Perfil del foro»
+  (`/dashboard/forum`). La BD no deja leer quién hay detrás de un alias: las tablas del foro no se leen
+  directamente, todo pasa por funciones que devuelven solo alias y avatar.
+- **6 categorías** (Fichajes y mercado, Táctica y entrenamiento, Reglas y arbitraje, Balonmano
+  internacional, Off-topic, Presentaciones) con contadores, temas recientes, página de cada categoría,
+  **crear tema** con vista previa en vivo, **hilo** con respuestas, editar y borrar lo propio (un tema
+  solo se puede borrar mientras nadie más haya respondido), y **perfil público del foro** por alias.
+- **Denuncias**: cualquier miembro puede denunciar un tema o respuesta (anónimo). Con **3 denuncias** de
+  personas distintas el contenido se oculta hasta que la moderación lo revise.
+- **Moderación**: los moderadores pueden ocultar, restaurar, cerrar y reabrir temas. Para nombrar a
+  alguien moderador (hasta que exista el panel de administración), en Supabase → SQL Editor:
+  `insert into public.forum_moderators (profile_id) values ('<id del usuario>');`
+  Las denuncias pendientes están en la tabla `forum_reports` (columna `resolved_at` vacía).
+- No ves lo que escriben los usuarios que has bloqueado. Antispam: 10 temas al día, 30 respuestas a la hora.
+- BD (`supabase/migrations/20261130000000_phase5_community.sql`). Para aplicarla:
+  `npx supabase db push --remote`.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

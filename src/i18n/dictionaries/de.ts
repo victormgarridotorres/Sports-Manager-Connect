@@ -148,6 +148,10 @@ const de: Messages = {
       emptyMessage: "Schreib eine Nachricht oder hänge eine Datei an.",
       invalidAttachment: "Es können nur PDFs oder Bilder (JPG, PNG, WebP) angehängt werden.",
       attachmentTooLarge: "Die Datei ist größer als 5 MB.",
+      aliasRequired: "Wähle zuerst deinen Forums-Alias.",
+      aliasTaken: "Dieser Alias ist schon vergeben. Probier einen anderen.",
+      topicClosed: "Dieses Thema ist geschlossen.",
+      topicHasReplies: "Du kannst kein Thema löschen, auf das andere schon geantwortet haben.",
     },
     fieldErrors: {
       required: "Pflichtfeld.",
@@ -157,6 +161,10 @@ const de: Messages = {
       invalid: "Ungültiger Wert.",
       video: "Füge einen YouTube- oder Vimeo-Link ein.",
       description: "Mindestens 20 Zeichen.",
+      alias: "3 bis 24 Zeichen, ohne Leerzeichen oder Zeichen wie @, / oder #.",
+      aliasTaken: "Dieser Alias ist schon vergeben.",
+      topicTitle: "Zwischen 5 und 140 Zeichen.",
+      topicBody: "Mindestens 10 Zeichen.",
     },
   },
   dashboard: {
@@ -302,7 +310,8 @@ const de: Messages = {
       "dashboard": "Mein Bereich",
       "profile": "Mein Profil",
       "account": "Kontoeinstellungen",
-      "viewPublic": "Mein öffentliches Profil ansehen"
+      "viewPublic": "Mein öffentliches Profil ansehen",
+      "forum": "Forumsprofil"
     },
     "tabs": {
       "basics": "Basisdaten",
@@ -709,6 +718,161 @@ const de: Messages = {
     "blockedTitle": "Blockierte Nutzer/innen",
     "unknownUser": "Nutzer/in",
     "noneBlocked": "Du hast niemanden blockiert."
+  },
+  community: {
+    "crumb": "Community",
+    "eyebrow": "Forum",
+    "title": "*Community*: der Treffpunkt des Welthandballs",
+    "lead": "Willst du mit den Kennern über Transfers, Taktik oder Neuigkeiten sprechen? Fans und Fachleute aus aller Welt treffen sich hier.",
+    "categories": {
+      "transfers": {
+        "name": "Transfers und Markt",
+        "description": "Gerüchte, Wechsel und Marktanalysen."
+      },
+      "tactics": {
+        "name": "Taktik und Training",
+        "description": "Spielsysteme, Methodik und Analyse."
+      },
+      "rules": {
+        "name": "Regeln und Schiedsrichterwesen",
+        "description": "Regelfragen und Schiedsrichterfälle."
+      },
+      "international": {
+        "name": "Internationaler Handball",
+        "description": "Ligen, Nationalmannschaften und Wettbewerbe weltweit."
+      },
+      "offtopic": {
+        "name": "Off-Topic",
+        "description": "Freier Community-Talk."
+      },
+      "introductions": {
+        "name": "Vorstellungen",
+        "description": "Neu in der Community? Stell dich hier vor."
+      }
+    },
+    "topicsCount": "{n} Themen",
+    "topicsCountOne": "1 Thema",
+    "postsCount": "{n} Beiträge",
+    "postsCountOne": "1 Beitrag",
+    "recent": "Neueste Themen",
+    "newTopic": "Thema erstellen",
+    "emptyForum": "Noch keine Themen. Starte das erste!",
+    "categoryEyebrow": "Forumskategorie",
+    "inCategory": "Themen in dieser Kategorie",
+    "emptyCategory": "In dieser Kategorie gibt es noch keine Themen. Sei die erste Person, die etwas postet!",
+    "startedBy": "gestartet von {alias}",
+    "byYou": "von dir gestartet",
+    "deletedUser": "Gelöschtes Konto",
+    "locked": "Geschlossen",
+    "hiddenFlag": "Ausgeblendet",
+    "replies": "{n} Antworten",
+    "repliesOne": "1 Antwort",
+    "justNow": "gerade eben",
+    "you": "Du",
+    "backToForum": "Zurück zur Community",
+    "cannotWrite": "Mit deinem Konto kannst du im Forum nicht posten.",
+    "aliasNotice": {
+      "title": "Wähle deinen Alias, um mitzumachen",
+      "text": "In der Community werden nie dein echter Name oder dein Foto gezeigt – nur ein Alias und ein neutraler Avatar.",
+      "cta": "Alias erstellen"
+    },
+    "thread": {
+      "original": "Ursprungsbeitrag",
+      "replies": "Antworten",
+      "noReplies": "Noch keine Antworten. Sei die erste Person!",
+      "yourReply": "Deine Antwort",
+      "replyPlaceholder": "Schreib eine Antwort…",
+      "postReply": "Antwort veröffentlichen",
+      "postingAs": "Du postest als {alias}.",
+      "edit": "Bearbeiten",
+      "saveEdit": "Änderungen speichern",
+      "delete": "Löschen",
+      "deleteFinal": "Ja, löschen",
+      "deletePostConfirm": "Diese Antwort löschen? Das kann nicht rückgängig gemacht werden.",
+      "deleteTopicConfirm": "Dieses Thema löschen? Das geht nur, solange niemand sonst geantwortet hat.",
+      "deleted": "Thema gelöscht.",
+      "posted": "Thema veröffentlicht! Es ist bereits in der Community.",
+      "edited": "bearbeitet",
+      "op": "Autor/in",
+      "hiddenByReports": "Nach mehreren Meldungen ausgeblendet, wird geprüft. Nur du (und die Moderation) siehst es.",
+      "hiddenByModerator": "Von der Moderation wegen Regelverstoß entfernt.",
+      "lockedHint": "Dieses Thema ist geschlossen und nimmt keine Antworten mehr an.",
+      "hiddenNoReplies": "Dieses Thema ist ausgeblendet und nimmt keine Antworten an.",
+      "notFoundTitle": "Thema nicht verfügbar",
+      "notFound": "Dieses Thema existiert nicht oder ist nicht mehr verfügbar."
+    },
+    "report": {
+      "action": "Melden",
+      "reasonLabel": "Was ist los?",
+      "reasons": {
+        "spam": "Spam oder Werbung",
+        "abuse": "Beleidigungen oder Belästigung",
+        "personal_data": "Persönliche Daten einer Person",
+        "off_topic": "Off-Topic",
+        "other": "Anderer Grund"
+      },
+      "noteLabel": "Details",
+      "notePlaceholder": "Details (optional)",
+      "hint": "Deine Meldung ist anonym. Nach mehreren Meldungen wird der Inhalt ausgeblendet, bis wir ihn prüfen.",
+      "submit": "Meldung senden",
+      "thanks": "Danke, wir prüfen das.",
+      "done": "Gemeldet"
+    },
+    "moderation": {
+      "hide": "Ausblenden",
+      "restore": "Wiederherstellen",
+      "lock": "Thema schließen",
+      "unlock": "Thema wieder öffnen"
+    },
+    "form": {
+      "crumb": "Thema erstellen",
+      "eyebrow": "Neues Thema",
+      "heading": "Starte ein *Thema* im Forum",
+      "lead": "Dein Thema erscheint sofort in der Community, in der von dir gewählten Kategorie, bereit für Antworten aus der Community.",
+      "category": "Kategorie",
+      "title": "Thementitel",
+      "titlePlaceholder": "z. B. Was haltet ihr vom neuen Play-off-Format?",
+      "body": "Nachricht",
+      "bodyPlaceholder": "Worüber möchtest du sprechen?",
+      "rulesHint": "Bleib respektvoll und poste keine persönlichen Daten (weder deine noch die anderer): Das Forum ist anonym.",
+      "submit": "Thema veröffentlichen",
+      "preview": "Live-Vorschau",
+      "previewHint": "So wird dein Thema in der Community aussehen, sobald du es veröffentlichst."
+    },
+    "profile": {
+      "notFoundTitle": "Profil nicht gefunden",
+      "notFound": "Niemand im Forum nutzt diesen Alias.",
+      "topics": "Themen",
+      "replies": "Antworten",
+      "memberSince": "Im Forum seit {date}",
+      "anonymous": "Anonyme Identität",
+      "editMine": "Mein Forumsprofil bearbeiten",
+      "topicsBy": "Themen von {alias}",
+      "noTopics": "Noch keine Themen gestartet."
+    },
+    "identity": {
+      "crumb": "Forumsprofil",
+      "title": "Deine *anonyme* Identität im Forum",
+      "lead": "In der Community werden nie dein echter Name oder dein Profilfoto gezeigt – nur dieser Alias, damit du frei deine Meinung sagen kannst.",
+      "yourAlias": "Dein Alias",
+      "aliasLabel": "Im Forum angezeigter Name",
+      "aliasHint": "3 bis 24 Zeichen, ohne Leerzeichen. Er wird nie neben deinem echten Namen gezeigt.",
+      "regenerate": "Anderen Alias erzeugen",
+      "avatarTitle": "Anonymer Avatar",
+      "avatarHint": "Ein neutrales Symbol, nicht dein echtes Foto.",
+      "avatars": {
+        "eagle": "Adler",
+        "fox": "Fuchs",
+        "wolf": "Wolf",
+        "lion": "Löwe",
+        "tiger": "Tiger",
+        "owl": "Eule"
+      },
+      "preview": "So sehen dich andere im Forum",
+      "save": "Änderungen speichern",
+      "saveAndGo": "Speichern und zum Forum",
+      "saved": "Forumsprofil gespeichert."
+    }
   },
   common: {
     loading: "Wird geladen…",
