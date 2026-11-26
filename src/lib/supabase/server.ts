@@ -1,10 +1,14 @@
 import "server-only";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 import { getSupabaseEnv } from "./env";
 
 /** Cliente Supabase para Server Components, Server Actions y Route Handlers. */
 export async function createClient() {
+  // Supabase lee el reloj (caducidad de la sesión): con Cache Components eso solo
+  // puede ocurrir en una petición real, no al prerenderizar.
+  await connection();
   const cookieStore = await cookies();
   const { url, key } = getSupabaseEnv();
 

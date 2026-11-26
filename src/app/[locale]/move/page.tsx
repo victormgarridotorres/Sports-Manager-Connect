@@ -10,6 +10,7 @@ import { hasLocale, type Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries/es";
 import { format } from "@/i18n/format";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { requestNow } from "@/lib/request-time";
 import { requireAccount } from "@/lib/auth/dal";
 import { hasActiveFilters, parseMoveFilters } from "@/lib/move/params";
 import { searchMove } from "@/lib/move/queries";
@@ -55,7 +56,7 @@ async function MoveContent({
   const canFollow = account.permissions.includes("profiles.follow");
   const { rows, total, error } = await searchMove(filters);
   const m = dict.move;
-  const now = new Date();
+  const now = await requestNow();
 
   return (
     <div className="tm-layout">

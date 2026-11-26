@@ -107,7 +107,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Publica y recibe ofertas",
             "text": "Publica tu disponibilidad o postúlate directamente a las ofertas del Tablón de Anuncios.",
-            "available": false
+            "available": true
           },
           {
             "title": "Visible en Move",
@@ -127,7 +127,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Publica ofertas",
             "text": "Publica vacantes ilimitadas en el Tablón de Anuncios: jugadores, entrenadores/as o agentes.",
-            "available": false
+            "available": true
           },
           {
             "title": "Filtra por posición y país",
@@ -137,7 +137,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Recibe candidaturas",
             "text": "Los jugadores y profesionales interesados se postulan directamente a tus ofertas.",
-            "available": false
+            "available": true
           },
           {
             "title": "Perfil de club verificado",
@@ -235,7 +235,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Post and receive offers",
             "text": "Post your availability or apply directly to offers on the Listings board.",
-            "available": false
+            "available": true
           },
           {
             "title": "Visible on Move",
@@ -255,7 +255,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Post offers",
             "text": "Post unlimited openings on the Listings board: players, coaches or agents.",
-            "available": false
+            "available": true
           },
           {
             "title": "Filter by position and country",
@@ -265,7 +265,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Receive applications",
             "text": "Interested players and professionals apply directly to your offers.",
-            "available": false
+            "available": true
           },
           {
             "title": "Verified club profile",
@@ -363,7 +363,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Publiez et recevez des offres",
             "text": "Publiez votre disponibilité ou postulez directement aux offres du tableau d'annonces.",
-            "available": false
+            "available": true
           },
           {
             "title": "Visible sur Move",
@@ -383,7 +383,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Publiez des offres",
             "text": "Publiez un nombre illimité d'offres sur le tableau d'annonces : joueurs, entraîneur(e)s ou agents.",
-            "available": false
+            "available": true
           },
           {
             "title": "Filtrez par poste et pays",
@@ -393,7 +393,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Recevez des candidatures",
             "text": "Les joueurs/euses et professionnel(le)s intéressé(e)s postulent directement à vos offres.",
-            "available": false
+            "available": true
           },
           {
             "title": "Profil de club vérifié",
@@ -491,7 +491,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Veröffentliche und erhalte Angebote",
             "text": "Veröffentliche deine Verfügbarkeit oder bewirb dich direkt auf Angebote im Anzeigenbrett.",
-            "available": false
+            "available": true
           },
           {
             "title": "Sichtbar auf Move",
@@ -511,7 +511,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Angebote veröffentlichen",
             "text": "Veröffentliche unbegrenzt viele offene Stellen im Anzeigenbrett: Spieler/innen, Trainer/innen oder Agenten.",
-            "available": false
+            "available": true
           },
           {
             "title": "Nach Position und Land filtern",
@@ -521,7 +521,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Bewerbungen erhalten",
             "text": "Interessierte Spieler/innen und Fachleute bewerben sich direkt auf deine Angebote.",
-            "available": false
+            "available": true
           },
           {
             "title": "Verifiziertes Vereinsprofil",
@@ -619,7 +619,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Publique e receba ofertas",
             "text": "Publique a sua disponibilidade ou candidate-se diretamente às ofertas do Mural de Anúncios.",
-            "available": false
+            "available": true
           },
           {
             "title": "Visível no Move",
@@ -639,7 +639,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Publique ofertas",
             "text": "Publique vagas ilimitadas no Mural de Anúncios: jogadores, treinadores/as ou agentes.",
-            "available": false
+            "available": true
           },
           {
             "title": "Filtre por posição e país",
@@ -649,7 +649,7 @@ export const rolePages: Record<Locale, RolePageContent> = {
           {
             "title": "Receba candidaturas",
             "text": "Os jogadores e profissionais interessados candidatam-se diretamente às suas ofertas.",
-            "available": false
+            "available": true
           },
           {
             "title": "Perfil de clube verificado",

@@ -16,6 +16,9 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Messages })
           <Link href={`/${locale}/move`} className="hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
             Move
           </Link>
+          <Link href={`/${locale}/listings`} className="hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
+            {dict.listings.crumb}
+          </Link>
           <Link href={`/${locale}/plans`} className="mr-1 hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
             {dict.nav.plans}
           </Link>
@@ -62,6 +65,7 @@ async function AuthNav({ locale, dict }: { locale: Locale; dict: Messages }) {
         viewPublic: dict.profile.nav.viewPublic,
         account: dict.profile.nav.account,
         favorites: dict.favorites.crumb,
+        listings: dict.listings.crumb,
       }}
     />
   );

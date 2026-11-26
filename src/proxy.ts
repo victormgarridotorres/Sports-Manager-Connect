@@ -10,7 +10,7 @@ import { roles } from "@/lib/auth/permissions";
 import { redirectWithCookies, updateSession } from "@/lib/supabase/proxy";
 
 // Rutas (sin el prefijo de idioma) que exigen sesión.
-const PROTECTED = ["/dashboard", "/reset-password", "/move", "/favorites"];
+const PROTECTED = ["/dashboard", "/reset-password", "/move", "/favorites", "/listings"];
 // Rutas sólo para usuarios sin sesión.
 const GUEST_ONLY = ["/login", "/signup", "/forgot-password"];
 

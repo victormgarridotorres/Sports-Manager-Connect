@@ -11,7 +11,7 @@ type Props = {
   name: string;
   subtitle: string;
   userId: string;
-  labels: { menu: string; dashboard: string; logout: string; profile: string; viewPublic: string; account: string; favorites: string };
+  labels: { menu: string; dashboard: string; logout: string; profile: string; viewPublic: string; account: string; favorites: string; listings: string };
 };
 
 export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
@@ -45,6 +45,7 @@ export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
             { href: `/${locale}/p/${userId}`, icon: "👤", label: labels.viewPublic },
             { href: `/${locale}/move`, icon: "🔁", label: "Move" },
             { href: `/${locale}/favorites`, icon: "★", label: labels.favorites },
+            { href: `/${locale}/listings/mine`, icon: "📋", label: labels.listings },
             { href: `/${locale}/dashboard/account`, icon: "⚙️", label: labels.account },
           ].map((item) => (
             <Link key={item.href} role="menuitem" href={item.href} className="menu-item" onClick={() => setOpen(false)}>

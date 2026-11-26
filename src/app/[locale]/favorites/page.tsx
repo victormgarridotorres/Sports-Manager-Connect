@@ -8,6 +8,7 @@ import { PageBody, SubHero } from "@/components/page-shell";
 import { hasLocale, type Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries/es";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { requestNow } from "@/lib/request-time";
 import { requireAccount } from "@/lib/auth/dal";
 import { roles } from "@/lib/auth/permissions";
 import { parseMoveFilters, toQuery } from "@/lib/move/params";
@@ -53,7 +54,7 @@ async function Favorites({
   const filters = parseMoveFilters(await searchParams, roles);
   const { rows, total } = await searchMove({ ...filters, sort: "name" }, true);
   const base = `/${locale}/favorites`;
-  const now = new Date();
+  const now = await requestNow();
   const f = dict.favorites;
 
   return (

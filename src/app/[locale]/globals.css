@@ -366,3 +366,45 @@ h1, h2, h3, .display { font-family: var(--font-display); }
   @media (min-width: 981px) { .filter-details > summary { pointer-events: none; } .filter-details > summary .chev { display: none; } }
 }
 @layer components { .filter-details[open] > summary { margin-bottom: 16px; } }
+
+/* --- Fase 3: anuncios (portado de prototipo_home.html) --- */
+@layer components {
+  .offer-row {
+    position: relative; display: flex; align-items: center; gap: 18px; padding: 16px 20px; border: 1px solid var(--line);
+    border-radius: 16px; background: #fff; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .offer-row:hover { transform: translateX(4px); box-shadow: var(--shadow-sm); border-color: transparent; }
+  .offer-row-id { flex: 1.5 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .offer-row-id .row-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .offer-row-id h4 { color: var(--ink); font-size: 15px; font-weight: 800; margin: 0; line-height: 1.3; }
+  .offer-row-id h4 a::after { content: ""; position: absolute; inset: 0; border-radius: 16px; }
+  .offer-row-id .row-org { font-size: 12.5px; color: var(--muted); margin: 0; }
+  .offer-row-tags { display: flex; gap: 6px; flex-wrap: wrap; flex: 1 1 140px; }
+  .offer-row-tags span { font-size: 11.5px; background: var(--paper-soft); color: var(--muted); padding: 4px 10px; border-radius: 999px; font-weight: 600; }
+  .offer-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex: none; min-width: 110px; font-size: 11.5px; }
+  .offer-row-meta .interest { font-weight: 800; color: var(--gold-deep); }
+  .offer-row-meta .time { color: var(--muted); }
+  .badge-new { background: var(--gold); color: #1b2740; font-size: 10px; font-weight: 800; border-radius: 999px; padding: 2px 8px; }
+  .offer-type { display: inline-flex; align-items: center; font-size: 11px; font-weight: 800; letter-spacing: .03em; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .offer-type.acc-navy { background: var(--ink); color: #fff; }
+  .offer-type.acc-gold { background: var(--gold-soft); color: var(--gold-deep); }
+  .offer-type.acc-diag { background: #e9eefb; color: #2e4a8a; }
+  .offer-type.acc-slate { background: #eef0f4; color: #4b5469; }
+  .offer-row-go {
+    flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--paper-soft); color: var(--ink);
+    display: flex; align-items: center; justify-content: center; font-weight: 800; transition: background .2s, transform .2s;
+  }
+  .offer-row:hover .offer-row-go { background: var(--gold); transform: translateX(3px); }
+  @media (max-width: 760px) {
+    .offer-row { flex-wrap: wrap; gap: 10px 14px; padding: 14px 16px; }
+    .offer-row-go { display: none; }
+    .offer-row-meta { flex-direction: row; align-items: center; gap: 10px; min-width: 0; }
+  }
+  .offer-icon { width: 52px; height: 52px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; }
+  .status-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+  .status-pill.sent { background: #eef0f4; color: #4b5469; }
+  .status-pill.shortlisted { background: #eef8f2; color: #17734a; }
+  .status-pill.rejected { background: #fdf5f4; color: var(--danger); }
+  .status-pill.closed { background: #eef0f4; color: #4b5469; }
+  .status-pill.active { background: #eef8f2; color: #17734a; }
+}

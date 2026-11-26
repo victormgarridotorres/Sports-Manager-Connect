@@ -12,8 +12,9 @@ import {
 function sqlMatrix() {
   const dir = join(__dirname, "..", "supabase", "migrations");
   const sql = readdirSync(dir).map((f) => readFileSync(join(dir, f), "utf8")).join("\n");
-  const block = sql.split("insert into public.role_permissions")[1].split(";")[0];
-  const rows = [...block.matchAll(/\('(\w+)',\s*'([\w.]+)',\s*(true|false)\)/g)];
+  // Todas las migraciones que añaden filas a role_permissions.
+  const blocks = sql.split("insert into public.role_permissions").slice(1).map((b) => b.split(";")[0]);
+  const rows = blocks.flatMap((block) => [...block.matchAll(/\('(\w+)',\s*'([\w.]+)',\s*(true|false)\)/g)]);
   return rows.map(([, role, permission, rv]) => `${role}:${permission}:${rv}`).sort();
 }
 

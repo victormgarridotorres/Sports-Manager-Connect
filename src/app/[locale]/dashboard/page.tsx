@@ -113,12 +113,13 @@ async function Dashboard({ locale, dict }: { locale: Locale; dict: Messages }) {
 
           <section>
             <p className="mb-2.5 text-[11px] font-bold tracking-wider text-on-dark-muted uppercase">{d.quickTitle}</p>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
               {[
                 { href: `/${locale}/dashboard/profile`, icon: "✏️", label: d.quickEdit },
                 { href: `/${locale}/p/${account.id}`, icon: "👤", label: d.quickPublic },
                 { href: `/${locale}/move`, icon: "🔁", label: "Move" },
                 { href: `/${locale}/favorites`, icon: "★", label: dict.favorites.crumb },
+                { href: `/${locale}/listings`, icon: "📋", label: dict.listings.crumb },
                 { href: `/${locale}/dashboard/account`, icon: "🔐", label: d.quickAccount },
               ].map((q) => (
                 <Link key={q.href} href={q.href} className="card-box flex flex-col items-center gap-1.5 !p-4 text-center text-[13.5px] font-bold transition hover:border-gold">

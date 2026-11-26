@@ -11,6 +11,7 @@ import { hasLocale, type Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries/es";
 import { format } from "@/i18n/format";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { requestNow } from "@/lib/request-time";
 import { getAccount } from "@/lib/auth/dal";
 import { ageFromBirthYear, countryFlag, countryName, languageNames } from "@/lib/profile/display";
 import { loadProfile } from "@/lib/profile/queries";
@@ -44,7 +45,8 @@ async function PublicProfile({ params }: { params: PageProps<"/[locale]/p/[id]">
   const isOwner = viewer?.id === full.profile.id;
   const follow = viewer ? await followState(full.profile.id) : null;
   const canFollow = !!viewer && !isOwner && viewer.permissions.includes("profiles.follow");
-  return <ProfileView full={full} locale={locale} dict={dict} isOwner={isOwner} follow={follow} canFollow={canFollow} />;
+  const now = await requestNow();
+  return <ProfileView full={full} locale={locale} dict={dict} isOwner={isOwner} follow={follow} canFollow={canFollow} now={now} />;
 }
 
 function ProfileView({
@@ -54,6 +56,7 @@ function ProfileView({
   isOwner,
   follow,
   canFollow,
+  now,
 }: {
   full: FullProfile;
   locale: Locale;
@@ -61,12 +64,13 @@ function ProfileView({
   isOwner: boolean;
   follow: { followers: number; following: boolean } | null;
   canFollow: boolean;
+  now: Date;
 }) {
   const { profile, player, professional, club } = full;
   const pp = dict.publicProfile;
   const o = dict.options;
   const role = profile.role;
-  const age = ageFromBirthYear(player?.birth_year);
+  const age = ageFromBirthYear(player?.birth_year, now);
   const memberSince = new Date(profile.created_at).getFullYear();
   const country = countryName(profile.country, locale);
   const place = [profile.city, country].filter(Boolean).join(", ");

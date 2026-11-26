@@ -180,6 +180,25 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
   `follower_count()` y `search_move()` (se ejecuta con los permisos de quien busca, así que respeta
   la visibilidad de cada perfil). Para aplicarla: `npx supabase db push --remote`.
 
+## Fase 3: Anuncios
+
+- **Tablón** (`/{idioma}/listings`, requiere sesión): filtros por texto, país (o internacional),
+  tipo de anuncio y posición; orden por recientes o por interesados.
+- **Quién publica qué** (lo decide `can_publish_listing` en la BD):
+  «Club busca» → clubes verificados · «Jugador/a se ofrece» → jugadores ·
+  «Profesional se ofrece» → profesionales · «Agente representa» → agentes verificados.
+- **Publicar/editar** con vista previa en vivo (`/listings/new`, `/listings/{id}/edit`). Los anuncios
+  caducan a los 90 días; se pueden cerrar, reabrir, renovar o eliminar.
+- **Postularme**: jugadores y profesionales, solo a «Club busca», con mensaje opcional. El club ve sus
+  candidaturas (y el perfil de cada candidato) y puede preseleccionar o descartar; el candidato ve su
+  estado y puede retirarse. **Guardar** anuncios; «interesados» = personas que guardaron o se postularon.
+- **Mis anuncios** (`/listings/mine`): publicados, mis candidaturas y guardados.
+- BD (`supabase/migrations/20261128000000_phase3_listings.sql`): `listings`, `listing_applications`,
+  `listing_saves` con RLS; permisos nuevos `availability.publish` y `offers.publish` para agentes.
+  Para aplicarla: `npx supabase db push --remote`.
+- El cliente de Supabase en servidor llama a `connection()`: Supabase lee el reloj y, con Cache
+  Components, eso solo puede ocurrir en una petición real.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

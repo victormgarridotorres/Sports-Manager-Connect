@@ -22,7 +22,7 @@ export function languageNames(codes: string[], locale: string) {
 }
 
 /** Edad aproximada a partir del año de nacimiento (las categorías van por año). */
-export function ageFromBirthYear(year: number | null | undefined, now = new Date()) {
+export function ageFromBirthYear(year: number | null | undefined, now: Date) {
   return year ? now.getFullYear() - year : null;
 }
 

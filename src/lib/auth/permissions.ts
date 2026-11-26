@@ -33,6 +33,7 @@ export const permissions = [
   "professional_cv.publish",
   "offers.apply",
   "offers.publish",
+  "availability.publish",
   "talent.search",
   "club.manage",
   "club.roster.manage",
@@ -55,6 +56,7 @@ export const rolePermissions: Record<Role, Grant[]> = {
     { permission: "player_cv.publish", requiresVerification: false },
     { permission: "offers.apply", requiresVerification: false },
     { permission: "messages.send", requiresVerification: false },
+    { permission: "availability.publish", requiresVerification: false },
   ],
   professional: [
     ...base,
@@ -62,6 +64,8 @@ export const rolePermissions: Record<Role, Grant[]> = {
     { permission: "offers.apply", requiresVerification: false },
     { permission: "messages.send", requiresVerification: false },
     { permission: "talent.search", requiresVerification: true },
+    { permission: "availability.publish", requiresVerification: false },
+    { permission: "offers.publish", requiresVerification: true },
   ],
   club: [
     ...base,
