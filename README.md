@@ -238,6 +238,30 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
 - BD (`supabase/migrations/20261130000000_phase5_community.sql`). Para aplicarla:
   `npx supabase db push --remote`.
 
+## Fase 6: Noticias
+
+- **Noticias públicas** (`/{idioma}/news`, sin necesidad de sesión, también visibles para Google):
+  portada con noticia principal, secundarias y lista, «Última hora», secciones (Fichajes, Resultados,
+  Selecciones, Opinión, Actualidad), filtro por país y página de cada noticia con compartir.
+  En la portada de la web aparece el bloque «Últimas noticias».
+- **Dos tipos de noticia**: *propia* (escrita por la redacción, con texto completo) y *enlazada*
+  (titular + resumen propio + botón «Leer la noticia completa» que lleva a la fuente original).
+  Nunca se copia el artículo ni las fotos de la fuente.
+- **Redacción** (`/{idioma}/news/editor`, solo para quien esté en la tabla `news_editors`):
+  - «Importar ahora» trae los titulares nuevos de las **fuentes RSS activas** como **borradores**
+    (sin duplicados; como máximo 25 por fuente y de los últimos 14 días).
+  - Cada borrador se revisa: se reescribe el resumen con palabras propias, se elige sección, país y
+    competición, y se publica o se descarta. Nada se publica sin revisión humana.
+  - «Fuentes»: añadir, probar («Probar» muestra los primeros titulares o el error), activar y editar.
+    Vienen 5 fuentes sugeridas **desactivadas** (no se pudieron comprobar desde aquí): pruébalas antes.
+- Para dar acceso a la redacción, en Supabase → SQL Editor:
+  `insert into public.news_editors (profile_id) values ('<id del usuario>');`
+- Las noticias se guardan en caché un minuto como mucho; al publicar o editar se actualizan al momento.
+- Pendiente: importación automática programada (cuando la web esté publicada) y ligas/clasificaciones
+  (requieren un proveedor de datos deportivos).
+- BD (`supabase/migrations/20261201000000_phase6_news.sql`). Para aplicarla:
+  `npx supabase db push --remote`.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

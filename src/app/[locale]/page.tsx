@@ -3,9 +3,12 @@ import { notFound } from "next/navigation";
 import { QueryNotice } from "@/components/query-notice";
 import { RoleIcon } from "@/components/role-icon";
 import { Rich } from "@/components/rich-text";
-import { hasLocale } from "@/i18n/config";
+import { NewsSublead } from "@/components/news/cards";
+import { hasLocale, type Locale } from "@/i18n/config";
+import type { Messages } from "@/i18n/dictionaries/es";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { roles } from "@/lib/auth/permissions";
+import { latestNews } from "@/lib/news/public";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -71,6 +74,36 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           </div>
         </div>
       </section>
+      <LatestNews locale={locale} dict={dict} />
     </>
+  );
+}
+
+/** Últimas noticias publicadas (con caché: no frena la portada). */
+async function LatestNews({ locale, dict }: { locale: Locale; dict: Messages }) {
+  const items = await latestNews(3);
+  if (!items.length) return null;
+  const t = dict.news;
+  return (
+    <section className="bg-paper-soft py-[72px]" aria-labelledby="home-news">
+      <div className="wrap">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <span className="eyebrow">{t.eyebrow}</span>
+            <h2 id="home-news" className="mt-4 text-[clamp(24px,3vw,32px)] font-extrabold tracking-[-.01em]">
+              {t.homeTitle}
+            </h2>
+          </div>
+          <Link href={`/${locale}/news`} className="font-bold text-gold-deep">
+            {t.homeCta} →
+          </Link>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {items.map((n) => (
+            <NewsSublead key={n.id} n={n} locale={locale} t={t} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

@@ -20,6 +20,9 @@ export function SiteHeader({ locale, dict }: { locale: Locale; dict: Messages })
           <Link href={`/${locale}/listings`} className="hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
             {dict.listings.crumb}
           </Link>
+          <Link href={`/${locale}/news`} className="hidden text-sm font-semibold text-[#c6c8d2] hover:text-white lg:inline">
+            {dict.news.crumb}
+          </Link>
           <Link href={`/${locale}/community`} className="hidden text-sm font-semibold text-[#c6c8d2] hover:text-white md:inline">
             {dict.community.crumb}
           </Link>
