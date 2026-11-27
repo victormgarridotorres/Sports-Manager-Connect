@@ -294,6 +294,19 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
   `insert into public.admins (profile_id) values ('<tu id>');` — el resto se da de alta desde el panel.
 - BD (`supabase/migrations/20261203000000_admin.sql`). Para aplicarla: `npx supabase db push --remote`.
 
+## Correo (SMTP propio)
+
+- Los emails de la cuenta salen del buzón **no-reply@sportsmanagerconnect.es** (IONOS,
+  `smtp.ionos.es:587`), con el nombre «Sports Manager Connect». Configurado en `supabase/config.toml`
+  (`[auth.email.smtp]`); la contraseña **no** está en el repositorio: se lee de la variable `SMTP_PASS`.
+- Plantillas propias en 5 idiomas (`supabase/templates/`): confirmar cuenta, recuperar contraseña,
+  cambio de email y aviso de contraseña cambiada. El idioma sale de la preferencia de la cuenta.
+- Límite: 30 emails por hora (`[auth.rate_limit] email_sent`). Súbelo si IONOS lo permite.
+- Para aplicar cambios de correo (pide la contraseña sin mostrarla):
+  `read -s SMTP_PASS && export SMTP_PASS && npx supabase config push`
+- Cuando la web esté publicada, cambia `site_url` por la dirección real para que los enlaces de los
+  emails apunten a ella.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

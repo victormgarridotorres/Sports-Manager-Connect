@@ -48,12 +48,14 @@ export async function savePreferences(_prev: FormState, fd: FormData): Promise<F
   if (!userId) return expired;
 
   const { locale, preferredLocale, visibility, marketing } = parsed.data;
-  const [a, b] = await Promise.all([
+  const [a, b, c] = await Promise.all([
     supabase.from("profiles").update({ preferred_locale: preferredLocale, visibility }).eq("id", userId),
     supabase.from("account_private").update({ marketing_opt_in: marketing }).eq("profile_id", userId),
+    // Los emails de Supabase (confirmación, contraseña…) eligen el idioma con este dato.
+    supabase.auth.updateUser({ data: { preferred_locale: preferredLocale } }),
   ]);
-  if (a.error || b.error) {
-    console.error("[account:prefs]", a.error?.message, b.error?.message);
+  if (a.error || b.error || c.error) {
+    console.error("[account:prefs]", a.error?.message, b.error?.message, c.error?.message);
     return { status: "error", error: "generic" };
   }
   // El idioma elegido se aplica en el momento a toda la web.
