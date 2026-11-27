@@ -18,6 +18,25 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Messages })
           </p>
           <p className="text-[13.5px] leading-relaxed text-[#7d7f8c]">{dict.brand.description}</p>
         </div>
+        <nav aria-label={dict.home.footerExplore}>
+          <h4 className="mb-4 text-[13px] font-bold tracking-[.04em] text-white uppercase">{dict.home.footerExplore}</h4>
+          <ul className="flex flex-col gap-2.5 text-[13.5px]">
+            {[
+              { href: "/move", label: "Move" },
+              { href: "/listings", label: dict.listings.crumb },
+              { href: "/news", label: dict.news.crumb },
+              { href: "/community", label: dict.community.crumb },
+              { href: "/plans", label: dict.nav.plans },
+              { href: "/partners", label: dict.partnersPage.crumb },
+            ].map((l) => (
+              <li key={l.href}>
+                <Link href={`/${locale}${l.href}`} className="hover:text-white">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <nav aria-label={dict.legal.title}>
           <h4 className="mb-4 text-[13px] font-bold tracking-[.04em] text-white uppercase">{dict.legal.title}</h4>
           <ul className="flex flex-col gap-2.5 text-[13.5px]">

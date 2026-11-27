@@ -29,6 +29,111 @@ const pt: Messages = {
     rolesLead: "Todos os perfis são gratuitos durante o primeiro ano. Ativa funções avançadas quando estiveres pronto/a, sem fricção.",
     roleCta: "Criar o meu perfil",
     accountDeleted: "A tua conta e todos os teus dados foram eliminados.",
+    exploreMove: "Explorar Move",
+    footerExplore: "Explorar",
+    newMembers: "Novos na comunidade",
+    search: {
+      "label": "Pesquisar no Move",
+      "placeholder": "Pesquisa um jogador, clube ou país…",
+      "button": "Pesquisar"
+    },
+    stats: {
+      "countries": "Países ativos",
+      "profiles": "Perfis",
+      "clubs": "Clubes registados",
+      "languages": "Idiomas nativos",
+      "free": "Grátis",
+      "freeLabel": "No primeiro ano",
+      "types": "Tipos de perfil",
+      "gdpr": "Dados na UE (RGPD)"
+    },
+    carousel: {
+      "region": "Últimas notícias",
+      "prev": "Notícia anterior",
+      "next": "Notícia seguinte",
+      "slide": "Notícia",
+      "live": "NOVO",
+      "fallbackTag": "Notícias",
+      "fallbackTitle": "Toda a atualidade do andebol mundial, no teu idioma",
+      "fallbackMeta": "Sports Manager Connect"
+    },
+    ticker: {
+      "label": "Atividade recente",
+      "countries": "Já há perfis de {n} países",
+      "free": "Grátis durante o primeiro ano",
+      "languages": "Disponível em espanhol, inglês, francês, alemão e português"
+    },
+    journey: {
+      "eyebrow": "O que é a Sports Manager Connect",
+      "title": "O ecossistema profissional do andebol, em três passos.",
+      "lead": "Perfis verificados, mensagens diretas e um mercado de transferências ativo — tudo ligado, em qualquer país e idioma.",
+      "steps": [
+        {
+          "title": "Discover",
+          "text": "Explora perfis de jogadores/as, treinadores/as, agentes e clubes de todo o mundo, com filtros por posição, país e disponibilidade."
+        },
+        {
+          "title": "Connect",
+          "text": "Mensagens diretas, sem intermediários: fala com quem decide, no teu idioma e ao teu ritmo."
+        },
+        {
+          "title": "Move",
+          "text": "Fecha a tua próxima transferência ou encontra o talento de que precisas: dá o passo no Move."
+        }
+      ]
+    },
+    moves: {
+      "title": "Últimas movimentações do mercado",
+      "lead": "Quem está disponível e desde quando — o pulso do mercado, resumido. O mercado completo, com filtros por país, posição e categoria, está no Move.",
+      "noClub": "Sem clube",
+      "availableNow": "Disponível já",
+      "nextSeason": "Próxima época",
+      "empty": "Ainda não há movimentações. Indica a tua disponibilidade no perfil e aparece aqui!",
+      "cta": "Ver todo o mercado no Move",
+      "panel": {
+        "title": "Hoje na plataforma",
+        "available": "Disponíveis já",
+        "listings": "Anúncios ativos",
+        "clubs": "Clubes",
+        "countries": "Países",
+        "joinTitle": "Junta-te ao mercado",
+        "joinText": "Cria o teu perfil grátis, indica a tua disponibilidade e aparece no Move para clubes e profissionais de todo o mundo.",
+        "cta": "Criar o meu perfil grátis"
+      }
+    },
+    listings: {
+      "eyebrow": "Mural de ofertas",
+      "title": "Últimas ofertas publicadas",
+      "lead": "As oportunidades mais recentes do mural — clubes que procuram talento e jogadores/as, treinadores/as ou agentes à procura do próximo desafio.",
+      "international": "Internacional",
+      "interested": "{n} interessados",
+      "view": "Ver anúncio completo",
+      "cta": "Ver todos os anúncios",
+      "empty": "Ainda não há anúncios. Os clubes verificados e os perfis profissionais podem publicar o primeiro.",
+      "carousel": {
+        "region": "Últimos anúncios",
+        "prev": "Anúncio anterior",
+        "next": "Anúncio seguinte",
+        "slide": "Anúncio"
+      }
+    },
+    global: {
+      "eyebrow": "Presença global",
+      "title": "O andebol não conhece fronteiras. Nós também não.",
+      "lead": "Notícias, idioma e comunidade adaptados a cada país onde se vive o andebol — da Liga ASOBAL à Bundesliga.",
+      "hint": "Ver notícias"
+    },
+    joinBlock: {
+      "title": "A tua próxima contratação pode estar em qualquer parte do mundo.",
+      "text": "Junta-te grátis hoje e faz parte da comunidade desportiva que está a ligar o andebol global.",
+      "button": "Criar a minha conta grátis"
+    },
+    partners: {
+      "eyebrow": "Colaboradores e patrocinadores",
+      "title": "A confiança de quem impulsiona o andebol",
+      "lead": "Marcas e entidades que acompanham o crescimento da Sports Manager Connect.",
+      "cta": "Ver todos os colaboradores"
+    },
   },
   roles: {
     fan: {
@@ -1006,6 +1111,21 @@ const pt: Messages = {
       "save": "Guardar",
       "sourceSaved": "Fonte adicionada. Testa-a e ativa-a."
     }
+  },
+  partnersPage: {
+    "crumb": "Colaboradores",
+    "title": "Quem torna possível a *Sports Manager Connect*",
+    "lead": "Marcas e entidades que acreditam na profissionalização do andebol e acompanham o crescimento da comunidade.",
+    "kinds": {
+      "institution": "Instituição",
+      "federation": "Federação",
+      "club": "Clube",
+      "brand": "Marca desportiva",
+      "business": "Empresa colaboradora"
+    },
+    "joinTitle": "Queres colaborar connosco?",
+    "joinText": "Se a tua marca ou entidade quer impulsionar o andebol com a Sports Manager Connect, escreve-nos.",
+    "joinCta": "Contactar"
   },
   common: {
     loading: "A carregar…",

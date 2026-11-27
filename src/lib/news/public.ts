@@ -1,7 +1,6 @@
 import "server-only";
-import { createClient as createSupabase } from "@supabase/supabase-js";
 import { cacheLife, cacheTag } from "next/cache";
-import { getSupabaseEnv } from "@/lib/supabase/env";
+import { anonClient as anon } from "@/lib/supabase/anon";
 import { NEWS_PAGE_SIZE, type NewsSection } from "./options";
 
 /*
@@ -25,11 +24,6 @@ export type NewsCard = {
 export type NewsArticle = NewsCard & { body: string | null; source_url: string | null; updated_at: string };
 
 const CARD = "id, section, country, competition, language, title, summary, source_name, author_name, published_at";
-
-function anon() {
-  const { url, key } = getSupabaseEnv();
-  return createSupabase(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
-}
 
 export type NewsFilters = { section?: NewsSection; country?: string; page?: number };
 

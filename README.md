@@ -262,6 +262,19 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
 - BD (`supabase/migrations/20261201000000_phase6_news.sql`). Para aplicarla:
   `npx supabase db push --remote`.
 
+## Portada
+
+- Igual que el prototipo: buscador (lleva a Move), cifras, carrusel con las últimas noticias, teletipo
+  de actividad, «Nuevos en la comunidad», Discover · Connect · Move, perfiles, últimos movimientos
+  (quién se ha marcado disponible), últimas ofertas, presencia global (enlaza a las noticias de cada
+  país), llamada a registrarse y colaboradores. Página `/{idioma}/partners` con todos los colaboradores.
+- **Todo con datos reales** (nunca cifras inventadas). Mientras haya menos de 100 perfiles, en lugar de
+  números bajos se muestran datos de la plataforma (5 idiomas, gratis el primer año…).
+- Sin sesión solo aparecen perfiles con visibilidad pública, y de los anuncios solo un adelanto
+  (título, tipo y país); el tablón completo sigue siendo para miembros.
+- Los colaboradores están en `src/content/partners.ts` (logos en `public/partners/`).
+- BD (`supabase/migrations/20261202000000_home.sql`). Para aplicarla: `npx supabase db push --remote`.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

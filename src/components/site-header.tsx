@@ -46,7 +46,7 @@ async function AuthNav({ locale, dict }: { locale: Locale; dict: Messages }) {
   if (!account) {
     return (
       <>
-        <Link href={`/${locale}/login`} className="btn btn-ghost btn-sm">
+        <Link href={`/${locale}/login`} className="btn btn-ghost btn-sm whitespace-nowrap max-sm:!px-3 max-[420px]:!text-[12.5px]">
           {dict.nav.login}
         </Link>
         <Link href={`/${locale}/signup`} className="btn btn-gold btn-sm hidden sm:inline-flex">

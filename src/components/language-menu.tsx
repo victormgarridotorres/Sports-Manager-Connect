@@ -26,9 +26,9 @@ export function LanguageMenu({ locale, label }: { locale: Locale; label: string 
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={label}
-        className="flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-2 text-[13.5px] font-semibold text-[#d6d8e0] hover:border-white/30"
+        className="flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-2 max-[420px]:px-2.5 text-[13.5px] font-semibold text-[#d6d8e0] hover:border-white/30"
       >
-        <span aria-hidden>🌐</span> {locale.toUpperCase()} <span aria-hidden>▾</span>
+        <span aria-hidden className="max-[420px]:hidden">🌐</span> {locale.toUpperCase()} <span aria-hidden>▾</span>
       </button>
       {open ? (
         <div role="menu" className="menu-panel w-[220px]">

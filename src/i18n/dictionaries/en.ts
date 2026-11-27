@@ -29,6 +29,111 @@ const en: Messages = {
     rolesLead: "All profiles are free for the first year. Adjust advanced features whenever you're ready, with no friction.",
     roleCta: "Create my profile",
     accountDeleted: "Your account and all your data have been deleted.",
+    exploreMove: "Explore Move",
+    footerExplore: "Explore",
+    newMembers: "New in the community",
+    search: {
+      "label": "Search Move",
+      "placeholder": "Search a player, club or country…",
+      "button": "Search"
+    },
+    stats: {
+      "countries": "Active countries",
+      "profiles": "Profiles",
+      "clubs": "Registered clubs",
+      "languages": "Native languages",
+      "free": "Free",
+      "freeLabel": "For the first year",
+      "types": "Profile types",
+      "gdpr": "Data in the EU (GDPR)"
+    },
+    carousel: {
+      "region": "Latest news",
+      "prev": "Previous story",
+      "next": "Next story",
+      "slide": "Story",
+      "live": "NEW",
+      "fallbackTag": "News",
+      "fallbackTitle": "All the latest from world handball, in your language",
+      "fallbackMeta": "Sports Manager Connect"
+    },
+    ticker: {
+      "label": "Recent activity",
+      "countries": "Profiles from {n} countries already",
+      "free": "Free for the first year",
+      "languages": "Available in Spanish, English, French, German and Portuguese"
+    },
+    journey: {
+      "eyebrow": "What is Sports Manager Connect",
+      "title": "The professional handball ecosystem, in three steps.",
+      "lead": "Verified profiles, direct messaging and an active transfer market — all connected, in any country or language.",
+      "steps": [
+        {
+          "title": "Discover",
+          "text": "Explore profiles of players, coaches, agents and clubs from around the world, with filters by position, country and availability."
+        },
+        {
+          "title": "Connect",
+          "text": "Direct messaging, no middlemen: talk to the decision-maker, in your language and at your pace."
+        },
+        {
+          "title": "Move",
+          "text": "Close your next transfer or find the talent you need: take the step on Move."
+        }
+      ]
+    },
+    moves: {
+      "title": "Latest market movements",
+      "lead": "Who's available and since when — the market pulse, summarized. The full market, with filters by country, position and category, lives in Move.",
+      "noClub": "No club",
+      "availableNow": "Available now",
+      "nextSeason": "Next season",
+      "empty": "No movements yet. Set your availability on your profile and show up here!",
+      "cta": "See the full market on Move",
+      "panel": {
+        "title": "Today on the platform",
+        "available": "Available now",
+        "listings": "Active listings",
+        "clubs": "Clubs",
+        "countries": "Countries",
+        "joinTitle": "Join the market",
+        "joinText": "Create your free profile, set your availability and appear in Move in front of clubs and professionals worldwide.",
+        "cta": "Create my free profile"
+      }
+    },
+    listings: {
+      "eyebrow": "Listings board",
+      "title": "Latest listings posted",
+      "lead": "The most recent opportunities on the board — clubs looking to sign talent, and players, coaches or agents looking for their next challenge.",
+      "international": "International",
+      "interested": "{n} interested",
+      "view": "View full listing",
+      "cta": "See all listings",
+      "empty": "No listings yet. Verified clubs and professional profiles can post the first one.",
+      "carousel": {
+        "region": "Latest listings",
+        "prev": "Previous listing",
+        "next": "Next listing",
+        "slide": "Listing"
+      }
+    },
+    global: {
+      "eyebrow": "Global presence",
+      "title": "Handball doesn't recognise borders. Neither do we.",
+      "lead": "News, language and community adapted to every country where handball is played — from Liga ASOBAL to the Bundesliga.",
+      "hint": "See news"
+    },
+    joinBlock: {
+      "title": "Your next signing could be anywhere in the world.",
+      "text": "Join for free today and become part of the sports community connecting global handball.",
+      "button": "Create my account for free"
+    },
+    partners: {
+      "eyebrow": "Partners and sponsors",
+      "title": "Trusted by those powering handball",
+      "lead": "Companies and organisations supporting the growth of Sports Manager Connect.",
+      "cta": "See all partners"
+    },
   },
   roles: {
     fan: {
@@ -1006,6 +1111,21 @@ const en: Messages = {
       "save": "Save",
       "sourceSaved": "Source added. Test it and enable it."
     }
+  },
+  partnersPage: {
+    "crumb": "Partners",
+    "title": "Who makes *Sports Manager Connect* possible",
+    "lead": "Brands and organisations that believe in the professionalisation of handball and support the growth of the community.",
+    "kinds": {
+      "institution": "Institution",
+      "federation": "Federation",
+      "club": "Club",
+      "brand": "Sports brand",
+      "business": "Partner company"
+    },
+    "joinTitle": "Want to partner with us?",
+    "joinText": "If your brand or organisation wants to grow handball with Sports Manager Connect, get in touch.",
+    "joinCta": "Contact us"
   },
   common: {
     loading: "Loading…",

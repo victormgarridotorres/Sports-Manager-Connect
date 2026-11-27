@@ -29,6 +29,111 @@ const de: Messages = {
     rolesLead: "Alle Profile sind im ersten Jahr kostenlos. Erweiterte Funktionen aktivierst du, wenn du bereit bist — ganz ohne Reibung.",
     roleCta: "Profil erstellen",
     accountDeleted: "Dein Konto und alle deine Daten wurden gelöscht.",
+    exploreMove: "Move entdecken",
+    footerExplore: "Entdecken",
+    newMembers: "Neu in der Community",
+    search: {
+      "label": "In Move suchen",
+      "placeholder": "Spieler/in, Verein oder Land suchen…",
+      "button": "Suchen"
+    },
+    stats: {
+      "countries": "Aktive Länder",
+      "profiles": "Profile",
+      "clubs": "Registrierte Vereine",
+      "languages": "Muttersprachen",
+      "free": "Kostenlos",
+      "freeLabel": "Im ersten Jahr",
+      "types": "Profiltypen",
+      "gdpr": "Daten in der EU (DSGVO)"
+    },
+    carousel: {
+      "region": "Neueste News",
+      "prev": "Vorheriger Artikel",
+      "next": "Nächster Artikel",
+      "slide": "Artikel",
+      "live": "NEU",
+      "fallbackTag": "News",
+      "fallbackTitle": "Alles Aktuelle aus dem Welthandball, in deiner Sprache",
+      "fallbackMeta": "Sports Manager Connect"
+    },
+    ticker: {
+      "label": "Aktuelle Aktivität",
+      "countries": "Schon Profile aus {n} Ländern",
+      "free": "Im ersten Jahr kostenlos",
+      "languages": "Auf Spanisch, Englisch, Französisch, Deutsch und Portugiesisch"
+    },
+    journey: {
+      "eyebrow": "Was ist Sports Manager Connect",
+      "title": "Das professionelle Handball-Ökosystem, in drei Schritten.",
+      "lead": "Verifizierte Profile, Direktnachrichten und ein aktiver Transfermarkt — alles vernetzt, in jedem Land und jeder Sprache.",
+      "steps": [
+        {
+          "title": "Discover",
+          "text": "Entdecke Profile von Spieler/innen, Trainer/innen, Agenten und Vereinen aus aller Welt, mit Filtern nach Position, Land und Verfügbarkeit."
+        },
+        {
+          "title": "Connect",
+          "text": "Direktnachrichten, ohne Vermittler: sprich mit der entscheidenden Person, in deiner Sprache und deinem Tempo."
+        },
+        {
+          "title": "Move",
+          "text": "Schließe deinen nächsten Transfer ab oder finde das Talent, das du brauchst: mach den Schritt auf Move."
+        }
+      ]
+    },
+    moves: {
+      "title": "Die neuesten Marktbewegungen",
+      "lead": "Wer verfügbar ist und seit wann — der Puls des Marktes, zusammengefasst. Den kompletten Markt mit Filtern nach Land, Position und Kategorie findest du in Move.",
+      "noClub": "Ohne Verein",
+      "availableNow": "Sofort verfügbar",
+      "nextSeason": "Nächste Saison",
+      "empty": "Noch keine Bewegungen. Gib in deinem Profil deine Verfügbarkeit an und erscheine hier!",
+      "cta": "Den ganzen Markt auf Move ansehen",
+      "panel": {
+        "title": "Heute auf der Plattform",
+        "available": "Sofort verfügbar",
+        "listings": "Aktive Anzeigen",
+        "clubs": "Vereine",
+        "countries": "Länder",
+        "joinTitle": "Werde Teil des Marktes",
+        "joinText": "Erstelle kostenlos dein Profil, gib deine Verfügbarkeit an und erscheine in Move bei Vereinen und Fachleuten weltweit.",
+        "cta": "Kostenloses Profil erstellen"
+      }
+    },
+    listings: {
+      "eyebrow": "Anzeigenbrett",
+      "title": "Zuletzt veröffentlichte Anzeigen",
+      "lead": "Die neuesten Gelegenheiten auf dem Anzeigenbrett — Vereine, die Talente verpflichten wollen, sowie Spieler/innen, Trainer/innen oder Agenten auf der Suche nach ihrer nächsten Herausforderung.",
+      "international": "International",
+      "interested": "{n} Interessierte",
+      "view": "Vollständige Anzeige ansehen",
+      "cta": "Alle Anzeigen ansehen",
+      "empty": "Noch keine Anzeigen. Verifizierte Vereine und Fachleute können die erste veröffentlichen.",
+      "carousel": {
+        "region": "Neueste Anzeigen",
+        "prev": "Vorherige Anzeige",
+        "next": "Nächste Anzeige",
+        "slide": "Anzeige"
+      }
+    },
+    global: {
+      "eyebrow": "Globale Präsenz",
+      "title": "Handball kennt keine Grenzen. Wir auch nicht.",
+      "lead": "Nachrichten, Sprache und Community, angepasst an jedes Land, in dem Handball gespielt wird — von der Liga ASOBAL bis zur Bundesliga.",
+      "hint": "News ansehen"
+    },
+    joinBlock: {
+      "title": "Dein nächster Transfer kann überall auf der Welt sein.",
+      "text": "Tritt noch heute kostenlos bei und werde Teil der Sport-Community, die den globalen Handball vernetzt.",
+      "button": "Mein Konto kostenlos erstellen"
+    },
+    partners: {
+      "eyebrow": "Partner und Sponsoren",
+      "title": "Das Vertrauen derer, die den Handball voranbringen",
+      "lead": "Marken und Organisationen, die das Wachstum von Sports Manager Connect unterstützen.",
+      "cta": "Alle Partner ansehen"
+    },
   },
   roles: {
     fan: {
@@ -1006,6 +1111,21 @@ const de: Messages = {
       "save": "Speichern",
       "sourceSaved": "Quelle hinzugefügt. Teste und aktiviere sie."
     }
+  },
+  partnersPage: {
+    "crumb": "Partner",
+    "title": "Wer *Sports Manager Connect* möglich macht",
+    "lead": "Marken und Organisationen, die an die Professionalisierung des Handballs glauben und das Wachstum der Community begleiten.",
+    "kinds": {
+      "institution": "Institution",
+      "federation": "Verband",
+      "club": "Verein",
+      "brand": "Sportmarke",
+      "business": "Partnerunternehmen"
+    },
+    "joinTitle": "Möchtest du mit uns zusammenarbeiten?",
+    "joinText": "Wenn deine Marke oder Organisation den Handball mit Sports Manager Connect voranbringen möchte, schreib uns.",
+    "joinCta": "Kontakt aufnehmen"
   },
   common: {
     loading: "Wird geladen…",

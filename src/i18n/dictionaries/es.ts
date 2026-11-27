@@ -30,6 +30,111 @@ const es = {
     rolesLead: "Todos los perfiles son gratuitos durante el primer año. Ajusta funciones avanzadas cuando estés listo, sin fricción.",
     roleCta: "Crear mi perfil",
     accountDeleted: "Tu cuenta y todos tus datos se han eliminado.",
+    exploreMove: "Explora Move",
+    footerExplore: "Explora",
+    newMembers: "Nuevos en la comunidad",
+    search: {
+      "label": "Buscar en Move",
+      "placeholder": "Busca un jugador, club o país…",
+      "button": "Buscar"
+    },
+    stats: {
+      "countries": "Países activos",
+      "profiles": "Perfiles",
+      "clubs": "Clubes registrados",
+      "languages": "Idiomas nativos",
+      "free": "Gratis",
+      "freeLabel": "El primer año",
+      "types": "Tipos de perfil",
+      "gdpr": "Datos en la UE (RGPD)"
+    },
+    carousel: {
+      "region": "Últimas noticias",
+      "prev": "Noticia anterior",
+      "next": "Siguiente noticia",
+      "slide": "Noticia",
+      "live": "NUEVO",
+      "fallbackTag": "Noticias",
+      "fallbackTitle": "Toda la actualidad del balonmano mundial, en tu idioma",
+      "fallbackMeta": "Sports Manager Connect"
+    },
+    ticker: {
+      "label": "Actividad reciente",
+      "countries": "Ya hay perfiles de {n} países",
+      "free": "Gratis durante el primer año",
+      "languages": "Disponible en español, inglés, francés, alemán y portugués"
+    },
+    journey: {
+      "eyebrow": "Qué es Sports Manager Connect",
+      "title": "El ecosistema profesional del balonmano, en tres pasos.",
+      "lead": "Perfiles verificados, mensajería directa y un mercado de fichajes activo — todo conectado, en cualquier país e idioma.",
+      "steps": [
+        {
+          "title": "Discover",
+          "text": "Explora perfiles de jugadores/as, entrenadores/as, agentes y clubes de todo el mundo, con filtros por posición, país y disponibilidad."
+        },
+        {
+          "title": "Connect",
+          "text": "Mensajería directa, sin intermediarios: habla con quien decide, en tu idioma y a tu ritmo."
+        },
+        {
+          "title": "Move",
+          "text": "Cierra tu próximo fichaje o encuentra el talento que necesitas: da el paso en Move."
+        }
+      ]
+    },
+    moves: {
+      "title": "Últimos movimientos del mercado",
+      "lead": "Quién está disponible y desde cuándo — el pulso del mercado, resumido. El mercado completo, con filtros por país, posición y categoría, está en Move.",
+      "noClub": "Sin club",
+      "availableNow": "Disponible ya",
+      "nextSeason": "Próxima temporada",
+      "empty": "Aún no hay movimientos. ¡Marca tu disponibilidad en tu perfil y aparece aquí!",
+      "cta": "Ver todo el mercado en Move",
+      "panel": {
+        "title": "Hoy en la plataforma",
+        "available": "Disponibles ya",
+        "listings": "Anuncios activos",
+        "clubs": "Clubes",
+        "countries": "Países",
+        "joinTitle": "Únete al mercado",
+        "joinText": "Crea tu perfil gratis, marca tu disponibilidad y aparece en Move ante clubes y profesionales de todo el mundo.",
+        "cta": "Crear mi perfil gratis"
+      }
+    },
+    listings: {
+      "eyebrow": "Tablón de ofertas",
+      "title": "Últimas ofertas publicadas",
+      "lead": "Las oportunidades más recientes del tablón — clubes que buscan talento, jugadores/as, entrenadores/as o agentes que buscan su próximo reto.",
+      "international": "Internacional",
+      "interested": "{n} interesados",
+      "view": "Ver oferta completa",
+      "cta": "Ver todos los anuncios",
+      "empty": "Todavía no hay anuncios publicados. Los clubes verificados y los perfiles profesionales pueden publicar el primero.",
+      "carousel": {
+        "region": "Últimos anuncios",
+        "prev": "Anuncio anterior",
+        "next": "Siguiente anuncio",
+        "slide": "Anuncio"
+      }
+    },
+    global: {
+      "eyebrow": "Presencia global",
+      "title": "El balonmano no entiende de fronteras. Nosotros tampoco.",
+      "lead": "Noticias, idioma y comunidad adaptados a cada país donde se vive el balonmano — desde la Liga ASOBAL hasta la Bundesliga.",
+      "hint": "Ver noticias"
+    },
+    joinBlock: {
+      "title": "Tu próximo fichaje puede estar en cualquier parte del mundo.",
+      "text": "Únete gratis hoy y forma parte de la comunidad deportiva que está conectando el balonmano global.",
+      "button": "Crear mi cuenta gratis"
+    },
+    partners: {
+      "eyebrow": "Colaboradores y patrocinadores",
+      "title": "La confianza de quienes impulsan el balonmano",
+      "lead": "Marcas y entidades que acompañan el crecimiento de Sports Manager Connect.",
+      "cta": "Ver todos los colaboradores"
+    },
   },
   roles: {
     fan: {
@@ -1008,6 +1113,21 @@ const es = {
       "save": "Guardar",
       "sourceSaved": "Fuente añadida. Pruébala y actívala."
     }
+  },
+  partnersPage: {
+    "crumb": "Colaboradores",
+    "title": "Quienes hacen posible *Sports Manager Connect*",
+    "lead": "Marcas y entidades que creen en la profesionalización del balonmano y acompañan el crecimiento de la comunidad.",
+    "kinds": {
+      "institution": "Institución",
+      "federation": "Federación",
+      "club": "Club",
+      "brand": "Marca deportiva",
+      "business": "Empresa colaboradora"
+    },
+    "joinTitle": "¿Quieres colaborar con nosotros?",
+    "joinText": "Si tu marca o entidad quiere impulsar el balonmano con Sports Manager Connect, escríbenos.",
+    "joinCta": "Contactar"
   },
   common: {
     loading: "Cargando…",
