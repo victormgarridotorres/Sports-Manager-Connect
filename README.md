@@ -275,6 +275,25 @@ No se han trasladado (a propósito) los datos de demostración del prototipo —
 - Los colaboradores están en `src/content/partners.ts` (logos en `public/partners/`).
 - BD (`supabase/migrations/20261202000000_home.sql`). Para aplicarla: `npx supabase db push --remote`.
 
+## Panel de administración
+
+- `/{idioma}/admin`, solo para quien esté en la tabla `admins`. Aparece «Administración» en el menú de
+  la cuenta. Un admin es también moderador del foro y miembro de la redacción.
+- **Resumen**: lo pendiente (verificaciones, denuncias, borradores, suspensiones), cifras de la
+  plataforma y actividad de la última semana.
+- **Verificaciones**: clubes y profesionales pendientes con sus datos (web, liga, fundación, tipo de
+  profesional…). Verificar activa sus permisos (p. ej. publicar ofertas); al rechazar se puede dejar una
+  nota que la persona ve en su panel.
+- **Usuarios**: buscar por nombre, email o id y filtrar; ficha con datos, actividad y historial.
+  Desde la ficha: verificación, **equipo** (administración, redacción, moderación del foro) y
+  **suspender** (con motivo visible para la persona). Una cuenta suspendida pierde todos los permisos
+  y su perfil deja de verse. Nadie puede suspenderse ni quitarse el acceso de admin a sí mismo.
+- **Denuncias** del foro: contenido, motivos y notas; «Retirar» o «Mantener».
+- **Registro**: todo lo que hace el equipo queda anotado.
+- **Primer admin** (una sola vez), en Supabase → SQL Editor:
+  `insert into public.admins (profile_id) values ('<tu id>');` — el resto se da de alta desde el panel.
+- BD (`supabase/migrations/20261203000000_admin.sql`). Para aplicarla: `npx supabase db push --remote`.
+
 ## Textos legales
 
 Copiados **literalmente** de la web actual (aviso legal, política de privacidad y de cookies) a

@@ -11,6 +11,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import Link from "next/link";
 import { Avatar } from "@/components/profile/avatar";
 import { SettingsNav } from "@/components/profile/settings-nav";
+import { createClient } from "@/lib/supabase/server";
 import { requireAccount } from "@/lib/auth/dal";
 import { profileCompletion } from "@/lib/profile/completion";
 import { loadProfile } from "@/lib/profile/queries";
@@ -78,6 +79,7 @@ async function Dashboard({ locale, dict }: { locale: Locale; dict: Messages }) {
       <PageBody>
         <div className="flex flex-col gap-5">
           <SettingsNav locale={locale} current="dashboard" t={dict.profile.nav} />
+          <AccountNotices account={account} dict={dict} />
           {status === "pending" ? <Alert tone="warning">{d.pendingNotice}</Alert> : null}
           {status === "rejected" ? <Alert tone="error">{d.rejectedNotice}</Alert> : null}
 
@@ -159,5 +161,33 @@ async function Dashboard({ locale, dict }: { locale: Locale; dict: Messages }) {
         </div>
       </PageBody>
     </>
+  );
+}
+
+/** Avisos de la administración: suspensión y estado de la verificación. */
+async function AccountNotices({ account, dict }: { account: Awaited<ReturnType<typeof requireAccount>>; dict: Messages }) {
+  const t = dict.dashboard.notices;
+  if (!account.suspended && account.verificationStatus !== "pending" && account.verificationStatus !== "rejected") return null;
+  const supabase = await createClient();
+  const { data } = await supabase.from("account_moderation").select("verification_note, suspension_reason").eq("profile_id", account.id).maybeSingle();
+  if (account.suspended) {
+    return (
+      <div role="alert" className="alert alert-error">
+        <b>{t.suspendedTitle}</b> {t.suspended}
+        {data?.suspension_reason ? <> {format(t.reason, { reason: data.suspension_reason })}</> : null}
+      </div>
+    );
+  }
+  if (account.verificationStatus === "rejected") {
+    return (
+      <div role="status" className="alert alert-warning">
+        <b>{t.rejectedTitle}</b> {data?.verification_note ? format(t.reason, { reason: data.verification_note }) : null} {t.rejected}
+      </div>
+    );
+  }
+  return (
+    <div role="status" className="alert alert-warning">
+      <b>{dict.verification.pending}.</b> {t.pending}
+    </div>
   );
 }

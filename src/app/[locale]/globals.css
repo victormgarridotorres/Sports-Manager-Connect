@@ -773,4 +773,13 @@ h1, h2, h3, .display { font-family: var(--font-display); }
     .sponsor-tile-logo { height: 44px; padding: 5px 12px; } .sponsor-tile-logo img { height: 26px; max-width: 120px; } .sponsor-tile-name { font-size: 14px; }
     .move-item { flex-wrap: wrap; } .move-time { width: 100%; margin-left: 58px; }
   }
+
+  /* ---------- Administración ---------- */
+  .admin-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; margin-left: 7px; padding: 0 6px; border-radius: 999px; background: var(--gold); color: #1b2740; font-size: 11px; font-weight: 800; }
+  .admin-stat { display: flex; flex-direction: column; gap: 4px; padding: 18px !important; }
+  .admin-stat b { font-family: var(--font-display), system-ui, sans-serif; font-size: 28px; font-weight: 800; line-height: 1; color: var(--ink); }
+  .admin-stat span { font-size: 12.5px; color: var(--muted); }
+  a.admin-stat:hover { border-color: var(--gold); }
+  .admin-stat.is-hot { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(226, 162, 51, .18); }
+  .admin-stat.is-hot b { color: var(--gold-deep); }
 }

@@ -76,6 +76,7 @@ async function AuthNav({ locale, dict }: { locale: Locale; dict: Messages }) {
       name={account.displayName}
       subtitle={role + status}
       userId={account.id}
+      isAdmin={account.isAdmin}
       labels={{
         menu: dict.nav.account,
         dashboard: dict.nav.dashboard,
@@ -87,6 +88,7 @@ async function AuthNav({ locale, dict }: { locale: Locale; dict: Messages }) {
         listings: dict.listings.crumb,
         community: dict.community.crumb,
         messages: dict.messages.crumb,
+        admin: dict.admin.crumb,
       }}
     />
     </>

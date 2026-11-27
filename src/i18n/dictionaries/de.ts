@@ -259,6 +259,8 @@ const de: Messages = {
       topicHasReplies: "Du kannst kein Thema löschen, auf das andere schon geantwortet haben.",
       noActiveSources: "Keine aktiven Quellen. Aktiviere eine unter „Quellen“.",
       feedFailed: "Der Feed konnte nicht gelesen werden.",
+      adminSelf: "Das kannst du nicht mit deinem eigenen Konto tun.",
+      adminProtected: "Mitglieder der Verwaltung können nicht gesperrt werden. Entferne zuerst den Zugang.",
     },
     fieldErrors: {
       required: "Pflichtfeld.",
@@ -310,6 +312,14 @@ const de: Messages = {
     quickEdit: "Mein Profil bearbeiten",
     quickPublic: "Mein öffentliches Profil ansehen",
     quickAccount: "Kontoeinstellungen",
+    notices: {
+      "suspendedTitle": "Dein Konto ist gesperrt.",
+      "suspended": "Du kannst nichts veröffentlichen, schreiben oder Nachrichten senden, und dein Profil ist nicht sichtbar.",
+      "reason": "Grund: {reason}.",
+      "rejectedTitle": "Wir konnten dein Profil nicht verifizieren.",
+      "rejected": "Vervollständige dein Profil (z. B. die offizielle Website) und wir prüfen es erneut.",
+      "pending": "Wir prüfen dein Profil. Bis dahin kannst du es vervollständigen; einige Funktionen werden nach der Verifizierung freigeschaltet."
+    },
   },
   verification: {
     not_required: "Keine Verifizierung nötig",
@@ -1126,6 +1136,141 @@ const de: Messages = {
     "joinTitle": "Möchtest du mit uns zusammenarbeiten?",
     "joinText": "Wenn deine Marke oder Organisation den Handball mit Sports Manager Connect voranbringen möchte, schreib uns.",
     "joinCta": "Kontakt aufnehmen"
+  },
+  admin: {
+    "crumb": "Verwaltung",
+    "eyebrow": "Nur Verwaltung",
+    "title": "*Verwaltungs*bereich",
+    "lead": "Verifiziere Vereine und Fachleute, verwalte das Team, bearbeite Meldungen und behalte die Aktivität der Plattform im Blick.",
+    "tabs": {
+      "overview": "Übersicht",
+      "verifications": "Verifizierungen",
+      "users": "Nutzer/innen",
+      "reports": "Meldungen",
+      "log": "Protokoll"
+    },
+    "todo": "Offen",
+    "figures": "Die Plattform",
+    "recent": "Letzte Aktivität des Teams",
+    "seeAll": "Alles ansehen",
+    "done": "Erledigt",
+    "stats": {
+      "pendingVerifications": "Offene Verifizierungen",
+      "openReports": "Offene Meldungen",
+      "newsDrafts": "News-Entwürfe",
+      "suspended": "Gesperrte Konten",
+      "users": "Konten",
+      "listings": "Aktive Anzeigen",
+      "signups7d": "Anmeldungen (7 Tage)",
+      "messages7d": "Nachrichten (7 Tage)",
+      "forum7d": "Forumsbeiträge (7 Tage)",
+      "hidden": "Ausgeblendete Foreninhalte"
+    },
+    "users": {
+      "search": "Suchen",
+      "searchPlaceholder": "Name, E-Mail oder ID",
+      "role": "Profiltyp",
+      "filter": "Status",
+      "all": "Alle",
+      "apply": "Filtern",
+      "filters": {
+        "pending": "Verifizierung offen",
+        "verified": "Verifiziert",
+        "rejected": "Abgelehnt",
+        "suspended": "Gesperrt",
+        "staff": "Team"
+      },
+      "count": "{n} Konten",
+      "countOne": "1 Konto",
+      "joined": "seit {date}",
+      "empty": "Keine Konten für diese Filter.",
+      "notFound": "Dieses Konto existiert nicht.",
+      "suspendedBadge": "Gesperrt"
+    },
+    "user": {
+      "email": "E-Mail",
+      "unconfirmed": "nicht bestätigt",
+      "role": "Profiltyp",
+      "country": "Land",
+      "visibility": "Sichtbarkeit",
+      "joined": "Registriert",
+      "lastSignIn": "Letzte Anmeldung",
+      "forumAlias": "Forums-Alias",
+      "activity": "Aktivität",
+      "listings": "Anzeigen",
+      "forumPosts": "Forumsbeiträge",
+      "messages": "private Nachrichten",
+      "reportsReceived": "Erhaltene Meldungen",
+      "club": "Verein",
+      "founded": "gegründet",
+      "website": "Website",
+      "professional": "Fachperson",
+      "years": "Jahre Erfahrung",
+      "viewProfile": "Öffentliches Profil ansehen"
+    },
+    "verification": {
+      "title": "Verifizierung",
+      "current": "Aktueller Status",
+      "noteLabel": "Notiz für die Person (optional)",
+      "notePlaceholder": "z. B. Gib die offizielle Website des Vereins an, damit wir ihn verifizieren können",
+      "approve": "Verifizieren",
+      "reject": "Ablehnen",
+      "backToPending": "Zurück auf offen",
+      "queueLead": "Vereine und Fachleute, die auf ihre Verifizierung warten. Prüfe, ob sie sind, wer sie vorgeben zu sein (offizielle Website, Verband, soziale Netzwerke): Verifiziert können sie Anzeigen veröffentlichen und erweiterte Funktionen nutzen.",
+      "empty": "Keine offenen Verifizierungen. 🎉",
+      "noData": "Noch keine Angaben",
+      "noWebsite": "Keine Website angegeben",
+      "review": "Vollständige Akte ansehen"
+    },
+    "suspension": {
+      "title": "Sperre",
+      "reasonLabel": "Grund",
+      "reasonPlaceholder": "Wird der Person in ihrem Bereich angezeigt",
+      "hint": "Ein gesperrtes Konto kann nicht schreiben, veröffentlichen oder Nachrichten senden, und sein Profil ist nicht mehr sichtbar. Die Sperre kann jederzeit aufgehoben werden.",
+      "suspend": "Konto sperren",
+      "lift": "Sperre aufheben"
+    },
+    "staff": {
+      "title": "Team",
+      "yes": "Ja",
+      "no": "Nein",
+      "add": "Zugang geben",
+      "remove": "Entfernen",
+      "roles": {
+        "admin": "Verwaltung",
+        "editor": "Redaktion (News)",
+        "moderator": "Forumsmoderation"
+      }
+    },
+    "reports": {
+      "lead": "Von der Community gemeldete Foreninhalte. Ab 3 Meldungen werden sie automatisch ausgeblendet, bis du entscheidest. „Entfernen“ lässt sie ausgeblendet; „Behalten“ stellt sie wieder her und schließt die Meldungen.",
+      "open": "Offen",
+      "resolved": "Erledigt",
+      "empty": "Keine offenen Meldungen. 🎉",
+      "emptyResolved": "Noch keine erledigten Meldungen.",
+      "kindTopic": "Thema",
+      "kindReply": "Antwort",
+      "hiddenByMod": "Entfernt",
+      "hiddenAuto": "Durch Meldungen ausgeblendet",
+      "count": "{n} Meldungen",
+      "countOne": "1 Meldung",
+      "author": "Autor/in",
+      "viewAccount": "Konto ansehen",
+      "hide": "Entfernen",
+      "dismiss": "Behalten"
+    },
+    "log": {
+      "title": "Verlauf",
+      "lead": "Alles, was das Verwaltungsteam tut, wird hier protokolliert.",
+      "empty": "Noch keine Aktivität.",
+      "verification": "Verifizierung",
+      "suspend": "Konto gesperrt",
+      "unsuspend": "Sperre aufgehoben",
+      "staffOn": "Zugang gegeben",
+      "staffOff": "Zugang entfernt",
+      "reportHide": "Gemeldeter Inhalt entfernt",
+      "reportDismiss": "Meldung abgewiesen"
+    }
   },
   common: {
     loading: "Wird geladen…",

@@ -11,7 +11,7 @@ import { isForumCategory } from "@/lib/forum/options";
 import { redirectWithCookies, updateSession } from "@/lib/supabase/proxy";
 
 // Rutas (sin el prefijo de idioma) que exigen sesión.
-const PROTECTED = ["/dashboard", "/reset-password", "/move", "/favorites", "/listings", "/messages", "/community", "/news/editor"];
+const PROTECTED = ["/dashboard", "/reset-password", "/move", "/favorites", "/listings", "/messages", "/community", "/news/editor", "/admin"];
 // Rutas sólo para usuarios sin sesión.
 const GUEST_ONLY = ["/login", "/signup", "/forgot-password"];
 

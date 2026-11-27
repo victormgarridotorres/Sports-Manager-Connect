@@ -259,6 +259,8 @@ const en: Messages = {
       topicHasReplies: "You can't delete a topic that other people have already replied to.",
       noActiveSources: "No active sources. Enable one in “Sources”.",
       feedFailed: "The feed couldn't be read.",
+      adminSelf: "You can't do this to your own account.",
+      adminProtected: "Admins can't be suspended. Remove their access first.",
     },
     fieldErrors: {
       required: "This field is required.",
@@ -310,6 +312,14 @@ const en: Messages = {
     quickEdit: "Edit my profile",
     quickPublic: "View my public profile",
     quickAccount: "Account settings",
+    notices: {
+      "suspendedTitle": "Your account is suspended.",
+      "suspended": "You can't post, write or send messages, and your profile isn't visible.",
+      "reason": "Reason: {reason}.",
+      "rejectedTitle": "We couldn't verify your profile.",
+      "rejected": "Complete your profile (for example, the official website) and we'll review it again.",
+      "pending": "We're reviewing your profile. Meanwhile you can complete it; some features unlock once you're verified."
+    },
   },
   verification: {
     not_required: "No verification needed",
@@ -1126,6 +1136,141 @@ const en: Messages = {
     "joinTitle": "Want to partner with us?",
     "joinText": "If your brand or organisation wants to grow handball with Sports Manager Connect, get in touch.",
     "joinCta": "Contact us"
+  },
+  admin: {
+    "crumb": "Admin",
+    "eyebrow": "Admins only",
+    "title": "*Admin* panel",
+    "lead": "Verify clubs and professionals, manage the team, review reports and check platform activity.",
+    "tabs": {
+      "overview": "Overview",
+      "verifications": "Verifications",
+      "users": "Users",
+      "reports": "Reports",
+      "log": "Log"
+    },
+    "todo": "To do",
+    "figures": "The platform",
+    "recent": "Recent team activity",
+    "seeAll": "See all",
+    "done": "Done",
+    "stats": {
+      "pendingVerifications": "Pending verifications",
+      "openReports": "Open reports",
+      "newsDrafts": "News drafts",
+      "suspended": "Suspended accounts",
+      "users": "Accounts",
+      "listings": "Active listings",
+      "signups7d": "Sign-ups (7 days)",
+      "messages7d": "Messages (7 days)",
+      "forum7d": "Forum posts (7 days)",
+      "hidden": "Hidden forum content"
+    },
+    "users": {
+      "search": "Search",
+      "searchPlaceholder": "Name, email or id",
+      "role": "Profile type",
+      "filter": "Status",
+      "all": "All",
+      "apply": "Filter",
+      "filters": {
+        "pending": "Pending verification",
+        "verified": "Verified",
+        "rejected": "Rejected",
+        "suspended": "Suspended",
+        "staff": "Team"
+      },
+      "count": "{n} accounts",
+      "countOne": "1 account",
+      "joined": "joined {date}",
+      "empty": "No accounts match these filters.",
+      "notFound": "This account doesn't exist.",
+      "suspendedBadge": "Suspended"
+    },
+    "user": {
+      "email": "Email",
+      "unconfirmed": "unconfirmed",
+      "role": "Profile type",
+      "country": "Country",
+      "visibility": "Visibility",
+      "joined": "Joined",
+      "lastSignIn": "Last sign-in",
+      "forumAlias": "Forum alias",
+      "activity": "Activity",
+      "listings": "listings",
+      "forumPosts": "forum posts",
+      "messages": "private messages",
+      "reportsReceived": "Reports received",
+      "club": "Club",
+      "founded": "founded in",
+      "website": "Website",
+      "professional": "Professional",
+      "years": "years of experience",
+      "viewProfile": "View public profile"
+    },
+    "verification": {
+      "title": "Verification",
+      "current": "Current status",
+      "noteLabel": "Note for the person (optional)",
+      "notePlaceholder": "e.g. Add the club's official website so we can verify it",
+      "approve": "Verify",
+      "reject": "Reject",
+      "backToPending": "Back to pending",
+      "queueLead": "Clubs and professionals waiting to be verified. Check they are who they say they are (official website, federation, social media) before verifying: once verified they can post listings and use advanced features.",
+      "empty": "No pending verifications. 🎉",
+      "noData": "No data yet",
+      "noWebsite": "No website given",
+      "review": "See full record"
+    },
+    "suspension": {
+      "title": "Suspension",
+      "reasonLabel": "Reason",
+      "reasonPlaceholder": "Shown to the person on their dashboard",
+      "hint": "A suspended account can't write, post or send messages, and its profile is hidden. It can be lifted at any time.",
+      "suspend": "Suspend account",
+      "lift": "Lift suspension"
+    },
+    "staff": {
+      "title": "Team",
+      "yes": "Yes",
+      "no": "No",
+      "add": "Grant access",
+      "remove": "Remove",
+      "roles": {
+        "admin": "Admin",
+        "editor": "Newsroom (news)",
+        "moderator": "Forum moderation"
+      }
+    },
+    "reports": {
+      "lead": "Forum content reported by the community. With 3 reports it's hidden automatically until you decide. “Remove” keeps it hidden; “Keep” restores it and closes the reports.",
+      "open": "Open",
+      "resolved": "Resolved",
+      "empty": "No open reports. 🎉",
+      "emptyResolved": "No resolved reports yet.",
+      "kindTopic": "Topic",
+      "kindReply": "Reply",
+      "hiddenByMod": "Removed",
+      "hiddenAuto": "Hidden by reports",
+      "count": "{n} reports",
+      "countOne": "1 report",
+      "author": "Author",
+      "viewAccount": "view account",
+      "hide": "Remove",
+      "dismiss": "Keep"
+    },
+    "log": {
+      "title": "History",
+      "lead": "Everything the admin team does is recorded here.",
+      "empty": "No activity yet.",
+      "verification": "Verification",
+      "suspend": "Account suspended",
+      "unsuspend": "Suspension lifted",
+      "staffOn": "Access granted",
+      "staffOff": "Access removed",
+      "reportHide": "Reported content removed",
+      "reportDismiss": "Report dismissed"
+    }
   },
   common: {
     loading: "Loading…",

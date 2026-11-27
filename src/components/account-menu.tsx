@@ -11,10 +11,11 @@ type Props = {
   name: string;
   subtitle: string;
   userId: string;
-  labels: { menu: string; dashboard: string; logout: string; profile: string; viewPublic: string; account: string; favorites: string; listings: string; messages: string; community: string };
+  isAdmin?: boolean;
+  labels: { menu: string; dashboard: string; logout: string; profile: string; viewPublic: string; account: string; favorites: string; listings: string; messages: string; community: string; admin: string };
 };
 
-export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
+export function AccountMenu({ locale, name, subtitle, userId, isAdmin, labels }: Props) {
   const { open, setOpen, ref } = useDismissable<HTMLDivElement>();
 
   return (
@@ -49,6 +50,7 @@ export function AccountMenu({ locale, name, subtitle, userId, labels }: Props) {
             { href: `/${locale}/favorites`, icon: "★", label: labels.favorites },
             { href: `/${locale}/listings/mine`, icon: "📋", label: labels.listings },
             { href: `/${locale}/dashboard/account`, icon: "⚙️", label: labels.account },
+            ...(isAdmin ? [{ href: `/${locale}/admin`, icon: "🛡️", label: labels.admin }] : []),
           ].map((item) => (
             <Link key={item.href} role="menuitem" href={item.href} className="menu-item" onClick={() => setOpen(false)}>
               <span aria-hidden className="w-[18px] text-center">{item.icon}</span> {item.label}

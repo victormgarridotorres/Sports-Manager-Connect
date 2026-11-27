@@ -260,6 +260,8 @@ const es = {
       topicHasReplies: "No puedes borrar un tema en el que ya han respondido otras personas.",
       noActiveSources: "No hay fuentes activas. Activa alguna en «Fuentes».",
       feedFailed: "No se ha podido leer el feed.",
+      adminSelf: "No puedes hacer esto con tu propia cuenta.",
+      adminProtected: "No se puede suspender a alguien de administración. Quítale antes el acceso.",
     },
     fieldErrors: {
       required: "Campo obligatorio.",
@@ -312,6 +314,14 @@ const es = {
     quickEdit: "Editar mi perfil",
     quickPublic: "Ver mi perfil público",
     quickAccount: "Ajustes de cuenta",
+    notices: {
+      "suspendedTitle": "Tu cuenta está suspendida.",
+      "suspended": "No puedes publicar, escribir ni enviar mensajes, y tu perfil no es visible.",
+      "reason": "Motivo: {reason}.",
+      "rejectedTitle": "No hemos podido verificar tu perfil.",
+      "rejected": "Completa tu perfil (por ejemplo, la web oficial) y lo revisaremos de nuevo.",
+      "pending": "Estamos revisando tu perfil. Mientras tanto puedes completarlo; algunas funciones se activan al verificarlo."
+    },
   },
   verification: {
     not_required: "Sin verificación necesaria",
@@ -1128,6 +1138,141 @@ const es = {
     "joinTitle": "¿Quieres colaborar con nosotros?",
     "joinText": "Si tu marca o entidad quiere impulsar el balonmano con Sports Manager Connect, escríbenos.",
     "joinCta": "Contactar"
+  },
+  admin: {
+    "crumb": "Administración",
+    "eyebrow": "Solo administración",
+    "title": "Panel de *administración*",
+    "lead": "Verifica clubes y profesionales, gestiona el equipo, revisa denuncias y consulta la actividad de la plataforma.",
+    "tabs": {
+      "overview": "Resumen",
+      "verifications": "Verificaciones",
+      "users": "Usuarios",
+      "reports": "Denuncias",
+      "log": "Registro"
+    },
+    "todo": "Pendiente",
+    "figures": "La plataforma",
+    "recent": "Actividad reciente del equipo",
+    "seeAll": "Ver todo",
+    "done": "Hecho",
+    "stats": {
+      "pendingVerifications": "Verificaciones pendientes",
+      "openReports": "Denuncias abiertas",
+      "newsDrafts": "Noticias en borrador",
+      "suspended": "Cuentas suspendidas",
+      "users": "Cuentas",
+      "listings": "Anuncios activos",
+      "signups7d": "Altas (7 días)",
+      "messages7d": "Mensajes (7 días)",
+      "forum7d": "Mensajes en el foro (7 días)",
+      "hidden": "Contenido oculto en el foro"
+    },
+    "users": {
+      "search": "Buscar",
+      "searchPlaceholder": "Nombre, email o id",
+      "role": "Tipo de perfil",
+      "filter": "Estado",
+      "all": "Todos",
+      "apply": "Filtrar",
+      "filters": {
+        "pending": "Pendientes de verificar",
+        "verified": "Verificados",
+        "rejected": "Rechazados",
+        "suspended": "Suspendidos",
+        "staff": "Equipo"
+      },
+      "count": "{n} cuentas",
+      "countOne": "1 cuenta",
+      "joined": "alta {date}",
+      "empty": "No hay cuentas con estos filtros.",
+      "notFound": "Esta cuenta no existe.",
+      "suspendedBadge": "Suspendida"
+    },
+    "user": {
+      "email": "Email",
+      "unconfirmed": "sin confirmar",
+      "role": "Tipo de perfil",
+      "country": "País",
+      "visibility": "Visibilidad",
+      "joined": "Alta",
+      "lastSignIn": "Último acceso",
+      "forumAlias": "Alias del foro",
+      "activity": "Actividad",
+      "listings": "anuncios",
+      "forumPosts": "mensajes en el foro",
+      "messages": "mensajes privados",
+      "reportsReceived": "Denuncias recibidas",
+      "club": "Club",
+      "founded": "fundado en",
+      "website": "Web",
+      "professional": "Profesional",
+      "years": "años de experiencia",
+      "viewProfile": "Ver perfil público"
+    },
+    "verification": {
+      "title": "Verificación",
+      "current": "Estado actual",
+      "noteLabel": "Nota para la persona (opcional)",
+      "notePlaceholder": "p. ej. Añade la web oficial del club para poder verificarlo",
+      "approve": "Verificar",
+      "reject": "Rechazar",
+      "backToPending": "Volver a pendiente",
+      "queueLead": "Clubes y profesionales que esperan verificación. Comprueba que son quienes dicen ser (web oficial, federación, redes) antes de verificar: al hacerlo pueden publicar ofertas y usar las funciones avanzadas.",
+      "empty": "No hay verificaciones pendientes. 🎉",
+      "noData": "Sin datos todavía",
+      "noWebsite": "Sin web indicada",
+      "review": "Ver ficha completa"
+    },
+    "suspension": {
+      "title": "Suspensión",
+      "reasonLabel": "Motivo",
+      "reasonPlaceholder": "Se le mostrará a la persona en su panel",
+      "hint": "Una cuenta suspendida no puede escribir, publicar ni enviar mensajes, y su perfil deja de verse. Se puede levantar en cualquier momento.",
+      "suspend": "Suspender cuenta",
+      "lift": "Levantar suspensión"
+    },
+    "staff": {
+      "title": "Equipo",
+      "yes": "Sí",
+      "no": "No",
+      "add": "Dar acceso",
+      "remove": "Quitar",
+      "roles": {
+        "admin": "Administración",
+        "editor": "Redacción (noticias)",
+        "moderator": "Moderación del foro"
+      }
+    },
+    "reports": {
+      "lead": "Contenido del foro denunciado por la comunidad. Con 3 denuncias se oculta solo hasta que decidas. «Retirar» lo deja oculto; «Mantener» lo restaura y cierra las denuncias.",
+      "open": "Abiertas",
+      "resolved": "Resueltas",
+      "empty": "No hay denuncias abiertas. 🎉",
+      "emptyResolved": "Todavía no hay denuncias resueltas.",
+      "kindTopic": "Tema",
+      "kindReply": "Respuesta",
+      "hiddenByMod": "Retirado",
+      "hiddenAuto": "Oculto por denuncias",
+      "count": "{n} denuncias",
+      "countOne": "1 denuncia",
+      "author": "Autor",
+      "viewAccount": "ver cuenta",
+      "hide": "Retirar",
+      "dismiss": "Mantener"
+    },
+    "log": {
+      "title": "Historial",
+      "lead": "Todo lo que hace el equipo de administración queda registrado aquí.",
+      "empty": "Sin actividad todavía.",
+      "verification": "Verificación",
+      "suspend": "Cuenta suspendida",
+      "unsuspend": "Suspensión levantada",
+      "staffOn": "Acceso dado",
+      "staffOff": "Acceso quitado",
+      "reportHide": "Contenido denunciado retirado",
+      "reportDismiss": "Denuncia desestimada"
+    }
   },
   common: {
     loading: "Cargando…",
